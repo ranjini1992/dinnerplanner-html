@@ -12,94 +12,70 @@
 
   </head>
   <style>
-div.container {
-    width: 100%;
-    border: 1px solid gray;
-}
-
-header, footer {
-    padding: 1em;
-    color: white;
-    background-color: gray;
-    clear: left;
-    text-align: center;
-}
-
-nav {
-    float: left;
-    max-width: 160px;
-    margin: 0;
-    padding: 1em;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-   
-nav ul a {
-    text-decoration: none;
-}
-
-article {
-    margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
-}
-p {
-	text-align: center
-}
-
-.buttonHolder{ text-align: center; }
-
-</style>
+		.header {
+			padding: 1em;
+			color: black;
+			background-color: lightgray;
+			clear: left;
+			text-align: center;
+		}
+	</style>
 
   <body>
-  	<div class="header_container">
-  		<header>
-  			<h1> Dinner Planner </h1>
-  		</header>
-  	</div>
+  	<div class="container">
+  		<div class="row header">
+	  			<h1> Dinner Planner </h1>
+	  	</div>
 
 
-	<div class="container">
-		<div id="exampleView">
-<!--		<div>
-				 Number of guests: <span id="numberOfGuests"></span>
+			<div class="row">
+				<div id="sidebarView" style="display: none">	
+					<div class="col-md-3">	
+					<h4> My Dinner </h4>
+					People  <input type="text" name="guests" value="1">
+					<div class="btn-group-vertical">
+						<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+						<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+					</div>
+					
+					<br><br>
+   				<table id="draftMenu" style="width:100%">
+   					<tr>
+	          	<th>Dish Name</th>
+	          	<th>Cost</th>
+           	</tr>
+           </table><br><br>
+					<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
+					<div class="col-md-9	"></div>	
+				</div>
+
+				</div>
+
+				<div id="exampleView">
+					<div class="col-md-2"></div>
+						<div class="col-md-8">
+							<br><br><br><br>
+							<p class="text-center">
+							 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
+						</p>
+						<br><br>
+						<button id="createDinner" class="btn btn-warning center-block">Create new dinner</button>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
 			</div>
-		-->
-		<div id = "example-text"> 
-			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
-			</p>
-		</div>
-			<div class="buttonHolder">
-<!--         <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>-->
-				<button id="createPlan" class="btn btn-warning"  onclick="changeView()">Create new dinner</button>
- 			</div>
-		</div>
-		<div id = "secondview">
 		</div>
 
-
-	</div>
-
-	<div class="side_container">
-		
-
-		
-	</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<!-- TODO: Here you should include JS code for your other views -->
+		<!-- The application JavaScript code -->
+		<script src="js/app.js"></script>
+		<script src="js/model/dinnerModel.js"></script>
+		<script src="js/view/exampleView.js"></script>
+		<script src="js/view/sidebarView.js"></script>
   </body>
 </html>

@@ -33,7 +33,15 @@ var ExampleView = function (container, model) {
 	 * in some other view gives the same ID to another element.
 	 * 
 	 */
-	var numberOfGuests = container.find("#numberOfGuests");
+	
+	//var numberOfGuests = container.find("#numberOfGuests");
+	this.createDinner = container.find("#createDinner");
+	createDinner.addEventListener("click", function() {
+  		  exampleView.style.display = "none"
+  		  sidebarView.style.display = "block"
+	});
+	
+
 
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 
@@ -45,14 +53,14 @@ var ExampleView = function (container, model) {
 	 * this button and do something with it (see Lab 2).
 	 * 
 	 */
-	this.plusButton = container.find("#plusGuest");
-	this.minusButton = container.find("#minusGuest");
+	//this.plusButton = container.find("#plusGuest");
+	//this.minusButton = container.find("#minusGuest");
 	
 	/**
 	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
 	 * in our view to dynamically set it's value to "Hello World".
 	 */
-	numberOfGuests.html("Hello World");
+	//numberOfGuests.html(getNum);
 	
 }
  
