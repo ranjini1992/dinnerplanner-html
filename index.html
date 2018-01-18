@@ -4,24 +4,91 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
   </head>
+  <style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: gray;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+p {
+	text-align: center
+}
+
+.buttonHolder{ text-align: center; }
+
+</style>
+
   <body>
+  	<div class="header_container">
+  		<header>
+  			<h1> Dinner Planner </h1>
+  		</header>
+  	</div>
+
+
 	<div class="container">
-		<h1>Dinner planner</h1>
 		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
+<!--		<div>
+				 Number of guests: <span id="numberOfGuests"></span>
 			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
+		-->
+		<div id = "example-text"> 
+			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
+			</p>
 		</div>
+			<div class="buttonHolder">
+<!--         <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>-->
+				<button id="createPlan" class="btn btn-warning"  onclick="changeView()">Create new dinner</button>
+ 			</div>
+		</div>
+		<div id = "secondview">
+		</div>
+
+
+	</div>
+
+	<div class="side_container">
+		
+
+		
 	</div>
 
     <!-- jQuery -->
