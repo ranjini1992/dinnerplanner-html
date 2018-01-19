@@ -36,6 +36,7 @@ var SidebarView = function (container, model) {
 	confirmDinner.addEventListener("click", function() {
   		sidebarView.style.display = "none"
   		dishSearchView.style.display = "none"
+  		dishDetailsView.style.display = "none"
 	});
 
 	this.addGuest = container.find("#addGuest");

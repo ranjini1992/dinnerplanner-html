@@ -30,4 +30,8 @@ var DishItemView = function (container, model) {
 		}
     }
     this.createListOfAllDishes();
+    document.getElementById("dishItemView").addEventListener("click", function() {
+  		dishSearchView.style.display = "none"
+  		dishDetailsView.style.display = "block"
+	});
 }

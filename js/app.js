@@ -7,7 +7,7 @@ $(function() {
 	var sidebarView = new SidebarView($("#sidebarView"), model);
 	var dishItemView = new DishItemView($("#dishItemView"), model);
 	var dishSearchView = new DishSearchView($("#dishSearchView"), model);
-	//var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model);
+	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

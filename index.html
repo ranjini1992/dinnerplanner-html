@@ -28,15 +28,17 @@
 							<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
 						</div>
 						
-						<br><br>
-	   				<table id="draftMenu" style="width:100%">
-	   					<tr>
-		          	<th>Dish Name</th>
-		          	<th>Cost</th>
-	           	</tr>
-	           </table><br><br>
-	           <span>
-						<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
+						<div class="row buffer">
+		   				<table id="draftMenu" style="width:100%" >
+		   					<tr>
+			          	<th>Dish Name</th>
+			          	<th>Cost</th>
+		           	</tr>
+		           </table>
+		         </div>
+	           <div class="row buffer">
+							<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
+						</div>
 					</div>
 				</div>
 
@@ -56,8 +58,8 @@
 							<button id="searchDish" class="btn btn-warning">Search</button>
 						</div>
 					</div>
-					<br><br>
-					<div class="row">
+
+					<div class="row buffer">
 						<div id="dishItemView">
 						 <!-- DishItem Javascript will add a list of dish images here-->
 						</div>		
@@ -65,15 +67,50 @@
 					</div>
 				</div>
 
+				<div id="dishDetailsView" style="display: none">	
+					<div class="col-md-4">
+						<div id="dishname" class="row buffer">
+						</div>
+						<div id="dishpicture" class="row buffer">
+						</div>
+						
+						<div class="row buffer">
+							<button id="backButton" class="btn btn-warning">Back to Search</button>
+						</div>
+						<div class="row buffer">
+							<h3>PREPARATION</h3> 
+						</div>
+						<div id="dishprep" class="row buffer">
+						</div>
+					</div>
+					<div class="col-md-5 ingredientbox">
+						<div class="row buffer">
+							<h4> INGREDIENTS FOR 4 PEOPLE </h4>
+						</div>
+						<div class="row buffer">
+							<table id="ingredientsMenu" style="width:100%" >
+			   					
+			        </table>
+			      </div>
+			      <div class="row buffer">
+			      	<button id="addtoMenu" class="btn btn-warning">Add to Menu</button>
+			      	<span style="float:right;" id="total_price"></span>
+			      </div>
+					</div>
+				</div>
+
 				<div id="exampleView">
 					<div class="col-md-2"></div>
 						<div class="col-md-8">
-							<br><br><br><br>
-							<p class="text-center">
-							 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
-						<br><br>
-						<button id="createDinner" class="btn btn-warning center-block">Create new dinner</button>
-					</div>
+							<div class="row buffer">
+								<p class="text-center">
+								 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
+								</p>
+							</div>
+							<div class="row buffer">
+								<button id="createDinner" class="btn btn-warning center-block">Create new dinner</button>
+							</div>
+						</div>
 					<div class="col-md-2"></div>
 				</div>
 			</div>
@@ -92,5 +129,6 @@
 		<script src="js/view/sidebarView.js"></script>
 		<script src="js/view/dishSearchView.js"></script>
 		<script src="js/view/dishItemView.js"></script>
+		<script src="js/view/dishDetailsView.js"></script>
   </body>
 </html>
