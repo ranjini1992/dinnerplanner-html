@@ -39,9 +39,8 @@ var ExampleView = function (container, model) {
 	createDinner.addEventListener("click", function() {
   		  exampleView.style.display = "none"
   		  sidebarView.style.display = "block"
+  		  dishSearchView.style.display = "block"
 	});
-	
-
 
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 

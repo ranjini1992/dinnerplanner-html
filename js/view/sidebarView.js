@@ -9,8 +9,11 @@ var SidebarView = function (container, model) {
 	  		sidebarView.style.display = "none"
 	});
 
+
+
+
 	this.draftMenu = container.find("#draftMenu");
-	
+
 	function loadMenu(){
 	    tbl  = draftMenu;
 	    for(var i = 0; i < 3; i++){
@@ -24,8 +27,13 @@ var SidebarView = function (container, model) {
 	}
 	loadMenu();
 
+	var numGuests = document.getElementsByName("numGuests")[0];
+	this.numGuests = numGuests;
+	numGuests.value = model.getNumberOfGuests();
 
-	
+	numGuests.addEventListener("change", function() {
+		model.setNumberOfGuests(numGuests.value);
+	});
 	
 }
  

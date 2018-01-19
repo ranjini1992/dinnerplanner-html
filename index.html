@@ -31,24 +31,40 @@
 			<div class="row">
 				<div id="sidebarView" style="display: none">	
 					<div class="col-md-3">	
-					<h4> My Dinner </h4>
-					People  <input type="text" name="guests" value="1">
-					<div class="btn-group-vertical">
-						<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
-						<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+						<h4> My Dinner </h4>
+						People  <input type="text" name="numGuests">
+						<div class="btn-group-vertical">
+							<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+							<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+						</div>
+						
+						<br><br>
+	   				<table id="draftMenu" style="width:100%">
+	   					<tr>
+		          	<th>Dish Name</th>
+		          	<th>Cost</th>
+	           	</tr>
+	           </table><br><br>
+	           <span>
+						<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
 					</div>
-					
-					<br><br>
-   				<table id="draftMenu" style="width:100%">
-   					<tr>
-	          	<th>Dish Name</th>
-	          	<th>Cost</th>
-           	</tr>
-           </table><br><br>
-					<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
-					<div class="col-md-9	"></div>	
 				</div>
 
+				<div id="dishSearchView" style="display: none">	
+					<div class="col-md-9">	
+						<h4> FIND A DISH </h4>
+						<div class="col-md-3">
+						 <input type="text" name="input" placeholder="Enter key words">
+						</div>
+						<div class="col-md-2">
+						 <select>
+						  <option value="All">All</option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<button id="searchDish" class="btn btn-warning">Search</button>
+					</div>
+					</div>
 				</div>
 
 				<div id="exampleView">
@@ -57,7 +73,6 @@
 							<br><br><br><br>
 							<p class="text-center">
 							 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
-						</p>
 						<br><br>
 						<button id="createDinner" class="btn btn-warning center-block">Create new dinner</button>
 					</div>
