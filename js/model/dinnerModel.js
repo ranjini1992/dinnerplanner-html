@@ -103,7 +103,7 @@ var DinnerModel = function() {
 		}
 		]
 	};
-	
+
 	var dish_types = ['starter', 'main dish', 'dessert']
 
 	this.setNumberOfGuests = function(num) {
@@ -132,7 +132,7 @@ var DinnerModel = function() {
 		for(i = 0; i < menu.selected_dishes.length; i++){
 			if(id == menu.selected_dishes[i].id){
 				for (j = 0; j < menu.selected_dishes[i].ingredients.length ; j++){
-					total_dish_price += menu.selected_dishes[i].ingredients[j].price;
+					total_dish_price += menu.selected_dishes[i].ingredients[j].price * menu.num_guests;
 				}
 				break;
 			}
@@ -207,7 +207,10 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-	  	return dish.type == type && found;
+		if(type){
+	  		return dish.type == type && found;
+		}
+		return dish;
 	  });	
 	}
 

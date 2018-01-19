@@ -1,0 +1,17 @@
+.header {
+	padding: 1em;
+	color: black;
+	background-color: lightgray;
+	clear: left;
+	text-align: center;
+}
+
+.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 1em;
+    float: bottom;
+    width: 150px;
+    height:150px;
+    text-align: center;
+}

@@ -5,21 +5,29 @@
 var DishItemView = function (container, model) {
 
 	var dishlist = model.getAllDishes();
-	for (dish in dishlist){
 
-	}
+    this.createListOfAllDishes = function() {
 
-	/*
-    var container = document.getElementById('thumbs_container'); 
-    var img = document.createElement('img');
-    img.src = this.src;
-    img.alt = this.name;
-    img.className = 'thumb';
-    img.style.width = '200px';*/
 
-    // no painting yet
+    	for(i = 0; i < dishlist.length; i++){
 
-    this.create = function() {
-        container.appendChild(img);
+		    var view = document.getElementById("dishItemView");
+		    var div = document.createElement('div');
+		    div.className ="col-md-3 gallery";
+		    var fig = document.createElement('figure');
+		    var img = document.createElement('img');
+		    img.style.width = img.style.height = '80px'
+		    img.src = 'images/' + dishlist[i].image;
+		    var caption = document.createElement('figcaption');
+		    var caption_text = document.createTextNode(dishlist[i].name);
+
+		    //appending stuff in reverse order
+		    caption.appendChild(caption_text);
+		    fig.appendChild(img);
+		    fig.appendChild(caption);
+		    div.appendChild(fig);
+		    view.appendChild(div);
+		}
     }
+    this.createListOfAllDishes();
 }
