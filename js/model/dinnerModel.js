@@ -7,6 +7,8 @@ var DinnerModel = function() {
 		num_guests: 2,
 		selected_dishes: []
 	};
+	
+	var dish_types = ['starter', 'main dish', 'dessert']
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
@@ -107,6 +109,11 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
+	this.getDishTypeList = function(){
+		return dish_types;
+	}
+
 
 
 	// the dishes variable contains an array of all the 

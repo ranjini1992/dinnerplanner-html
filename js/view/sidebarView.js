@@ -7,6 +7,7 @@ var SidebarView = function (container, model) {
 	this.confirmDinner = container.find("#confirmDinner");
 		confirmDinner.addEventListener("click", function() {
 	  		sidebarView.style.display = "none"
+	  		dishSearchView.style.display = "none"
 	});
 
 
