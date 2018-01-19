@@ -51,18 +51,25 @@
 				</div>
 
 				<div id="dishSearchView" style="display: none">	
-					<div class="col-md-9">	
-						<h4> FIND A DISH </h4>
-						<div class="col-md-3">
-						 <input type="text" name="input" placeholder="Enter key words">
+					<div class="col-md-9">
+					<div class="row">	
+							<h4> FIND A DISH </h4>
+							<div class="col-md-3">
+							 <input type="text" name="input" placeholder="Enter key words">
+							</div>
+							<div class="col-md-2">
+							 <select id="dropdown">
+							  <option value="All">All</option>
+							</select>
 						</div>
-						<div class="col-md-2">
-						 <select id="dropdown">
-						  <option value="All">All</option>
-						</select>
+						<div class="col-md-4">
+							<button id="searchDish" class="btn btn-warning">Search</button>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<button id="searchDish" class="btn btn-warning">Search</button>
+					<div class="row">
+						<div id="dishItemView">
+						</div>
+					
 					</div>
 					</div>
 				</div>
@@ -93,5 +100,6 @@
 		<script src="js/view/exampleView.js"></script>
 		<script src="js/view/sidebarView.js"></script>
 		<script src="js/view/dishSearchView.js"></script>
+		<script src="js/view/dishItemView.js"></script>
   </body>
 </html>
