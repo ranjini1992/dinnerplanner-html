@@ -2,7 +2,7 @@
  * 
 
  */ 
-var DishItemView = function (container, model) {
+var DishItemView = function (container, model, dish_details_view) {
 
 	var dishlist = model.getAllDishes();
 
@@ -14,6 +14,7 @@ var DishItemView = function (container, model) {
 		    var view = document.getElementById("dishItemView");
 		    var div = document.createElement('div');
 		    div.className ="col-md-3 gallery";
+		    div.id = dishlist[i].id;
 		    var fig = document.createElement('figure');
 		    var img = document.createElement('img');
 		    img.style.width = img.style.height = '80px'
@@ -27,11 +28,15 @@ var DishItemView = function (container, model) {
 		    fig.appendChild(caption);
 		    div.appendChild(fig);
 		    view.appendChild(div);
+
+		    div.addEventListener("click", function() {
+				console.log(this.id);
+				dish_details_view.load(this.id);
+				dishSearchView.style.display = "none"
+  				dishDetailsView.style.display = "block"
+			});
 		}
     }
     this.createListOfAllDishes();
-    document.getElementById("dishItemView").addEventListener("click", function() {
-  		dishSearchView.style.display = "none"
-  		dishDetailsView.style.display = "block"
-	});
+
 }

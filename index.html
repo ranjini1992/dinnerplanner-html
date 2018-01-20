@@ -113,6 +113,31 @@
 						</div>
 					<div class="col-md-2"></div>
 				</div>
+
+				<div id="summaryView" style="display: none">
+						<div class="col-md-12">
+							<div class="row buffer">
+								<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoEditButton" class="btn btn-warning" style="float:right;">Go back and edit Dinner</button>
+							</div>
+							<div class="row buffer">
+								<div id="selectedDishMenu">
+								 <!-- Summary Javascript will add a list of dish images here-->
+								</div>		
+							</div>
+							<div class="row buffer">
+								<button id="printRecipe" class="btn btn-warning center-block">Print Full Recipe</button>
+							</div>
+						</div>
+				</div>
+
+				<div id="printView" style="display: none">
+					<div class="col-md-12">
+						<div class="row buffer">
+								<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoSummaryButton" class="btn btn-warning" style="float:right;">Go back and edit Dinner</button>
+							</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 
@@ -130,5 +155,7 @@
 		<script src="js/view/dishSearchView.js"></script>
 		<script src="js/view/dishItemView.js"></script>
 		<script src="js/view/dishDetailsView.js"></script>
+		<script src="js/view/summaryView.js"></script>
+		<script src="js/view/printView.js"></script>
   </body>
 </html>

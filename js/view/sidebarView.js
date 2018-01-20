@@ -39,6 +39,7 @@ var SidebarView = function (container, model) {
   		sidebarView.style.display = "none"
   		dishSearchView.style.display = "none"
   		dishDetailsView.style.display = "none"
+  		summaryView.style.display = "block"
 	});
 
 	this.addGuest = container.find("#addGuest");
