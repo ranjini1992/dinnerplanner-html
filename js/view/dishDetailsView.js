@@ -2,7 +2,7 @@
  * 
 
  */ 
-var DishDetailsView = function (container, model) {
+var DishDetailsView = function (container, model, sidebarView) {
 
 	var dish = model.getDish(1);
 	var dish_total_price = model.getDishPrice(dish.id);
@@ -53,6 +53,14 @@ var DishDetailsView = function (container, model) {
 
     this.backButton = container.find("#backButton");
 	backButton.addEventListener("click", function() {
+  		dishSearchView.style.display = "block"
+  		dishDetailsView.style.display = "none"
+	});
+
+	this.addtoMenu = container.find("#addtoMenu");
+	addtoMenu.addEventListener("click", function() {
+  		model.addDishToMenu(dish.id);
+  		sidebarView.refresh();
   		dishSearchView.style.display = "block"
   		dishDetailsView.style.display = "none"
 	});

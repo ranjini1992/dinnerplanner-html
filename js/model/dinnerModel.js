@@ -170,11 +170,24 @@ var DinnerModel = function() {
 		return total_menu_price;
 	}
 
+	//function that returns a dish of specific ID
+	this.getDish = function (id) {
+	  for(key in dishes){
+			if(dishes[key].id == id) {
+				return dishes[key];
+			}
+		}
+	}
+
+	this.getDishTypeList = function(){
+		return dish_types;
+	}
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1
-		var dish = getDish(id);
+		var dish = this.getDish(id);
 		menu.selected_dishes.push(dish);
 	}
 
@@ -213,20 +226,6 @@ var DinnerModel = function() {
 		return dish;
 	  });	
 	}
-
-	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
-	}
-
-	this.getDishTypeList = function(){
-		return dish_types;
-	}
-
 
 
 	// the dishes variable contains an array of all the 

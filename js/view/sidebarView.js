@@ -8,7 +8,9 @@ var SidebarView = function (container, model) {
 	this.numGuests = numGuests;
 	this.draftMenu = container.find("#draftMenu");
 
-	function refresh(){
+	sidebar = this;
+
+	this.refresh = function(){
 		numGuests.value = model.getNumberOfGuests();
 		var selected_dishes = model.getFullMenu();
 		var tbl  = draftMenu;
@@ -43,7 +45,7 @@ var SidebarView = function (container, model) {
 	addGuest.addEventListener("click", function() {
 		var num_of_guests = model.getNumberOfGuests();
   		model.setNumberOfGuests(num_of_guests+1);
-  		refresh();
+  		sidebar.refresh();
 	});
 
 	this.removeGuest = container.find("#removeGuest");
@@ -52,11 +54,11 @@ var SidebarView = function (container, model) {
 		if(num_of_guests >= 1 ){
 	  		model.setNumberOfGuests(num_of_guests-1);
 	  	}  	
-	  	refresh();
+	  	sidebar.refresh();
 
 	});
 
-	refresh();	
+	this.refresh();	
 	
 }
  
