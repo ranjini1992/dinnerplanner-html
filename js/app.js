@@ -4,11 +4,11 @@ $(function() {
 	
 	// And create the instance of ExampleView
 	var exampleView = new ExampleView($("#exampleView"));
-	var sidebarView = new SidebarView($("#sidebarView"), model);
-	var dishSearchView = new DishSearchView($("#dishSearchView"), model);
+	var summaryView = new SummaryView($("#summaryView"), model);
+	var sidebarView = new SidebarView($("#sidebarView"), model, summaryView);
 	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model, sidebarView);
 	var dishItemView = new DishItemView($("#dishItemView"), model, dishDetailsView);
-	var summaryView = new SummaryView($("#summaryView"), model, sidebarView);
+	var dishSearchView = new DishSearchView($("#dishSearchView"), model, dishItemView);
 	var printView = new PrintView($("#printView"), model);
 
 	/**

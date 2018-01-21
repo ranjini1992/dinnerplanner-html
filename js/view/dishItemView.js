@@ -4,14 +4,18 @@
  */ 
 var DishItemView = function (container, model, dish_details_view) {
 
-	var dishlist = model.getAllDishes();
+	var all_dishes = model.getAllDishes();
 
-    this.createListOfAllDishes = function() {
+    this.createListOfAllDishes = function(dishlist) {
 
+    	var view = document.getElementById("dishItemView");
+    	//remove other dishes previously added so that there is no repetitions
+		while(view.lastChild){
+			view.removeChild(view.lastChild);
+		}
 
     	for(i = 0; i < dishlist.length; i++){
 
-		    var view = document.getElementById("dishItemView");
 		    var div = document.createElement('div');
 		    div.className ="col-md-3 gallery";
 		    div.id = dishlist[i].id;
@@ -37,6 +41,6 @@ var DishItemView = function (container, model, dish_details_view) {
 			});
 		}
     }
-    this.createListOfAllDishes();
+    this.createListOfAllDishes(all_dishes);
 
 }

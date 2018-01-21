@@ -2,7 +2,7 @@
  * 
 
  */ 
-var SidebarView = function (container, model) {
+var SidebarView = function (container, model, summary_view) {
 
 	var numGuests = document.getElementsByName("numGuests")[0];
 	this.numGuests = numGuests;
@@ -36,10 +36,11 @@ var SidebarView = function (container, model) {
 
 	this.confirmDinner = container.find("#confirmDinner");
 	confirmDinner.addEventListener("click", function() {
-  		sidebarView.style.display = "none"
-  		dishSearchView.style.display = "none"
-  		dishDetailsView.style.display = "none"
-  		summaryView.style.display = "block"
+  		sidebarView.style.display = "none";
+  		dishSearchView.style.display = "none";
+  		dishDetailsView.style.display = "none";
+  		summary_view.loadsummary();
+  		summaryView.style.display = "block";
 	});
 
 	this.addGuest = container.find("#addGuest");
