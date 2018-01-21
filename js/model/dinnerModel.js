@@ -162,9 +162,9 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
 		var total_menu_price = 0;
-		for(key in menu.selected_dishes){
-			for (ingredient in menu.selected_dishes[key].ingredients){
-				total_menu_price += ingredient.price * menu.num_guests;
+		for(i = 0; i < menu.selected_dishes.length; i++){
+			for (j = 0; j < menu.selected_dishes[i].ingredients.length ; j++){
+				total_menu_price += menu.selected_dishes[i].ingredients[j].price * menu.num_guests;
 			}
 		}
 		return total_menu_price;

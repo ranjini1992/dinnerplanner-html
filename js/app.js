@@ -4,12 +4,12 @@ $(function() {
 	
 	// And create the instance of ExampleView
 	var exampleView = new ExampleView($("#exampleView"));
-	var summaryView = new SummaryView($("#summaryView"), model);
+	var printView = new PrintView($("#printView"), model);
+	var summaryView = new SummaryView($("#summaryView"), model, printView);
 	var sidebarView = new SidebarView($("#sidebarView"), model, summaryView);
 	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model, sidebarView);
 	var dishItemView = new DishItemView($("#dishItemView"), model, dishDetailsView);
 	var dishSearchView = new DishSearchView($("#dishSearchView"), model, dishItemView);
-	var printView = new PrintView($("#printView"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
