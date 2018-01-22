@@ -129,10 +129,10 @@ var DinnerModel = function() {
 	this.getDishPrice = function(id) {
 		//TODO Lab 1
 		var total_dish_price = 0;
-		for(i = 0; i < menu.selected_dishes.length; i++){
-			if(id == menu.selected_dishes[i].id){
-				for (j = 0; j < menu.selected_dishes[i].ingredients.length ; j++){
-					total_dish_price += menu.selected_dishes[i].ingredients[j].price * menu.num_guests;
+		for(i = 0; i < dishes.length; i++){
+			if(id == dishes[i].id){
+				for (j = 0; j < dishes[i].ingredients.length ; j++){
+					total_dish_price += Number(dishes[i].ingredients[j].price) *menu.num_guests;
 				}
 				break;
 			}

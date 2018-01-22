@@ -34,8 +34,8 @@ var DishDetailsView = function (container, model, side_bar_view) {
 
 		this.ingredientsMenu = container.find("#ingredientsMenu");
 		var tbl  = ingredientsMenu;
-		while(tbl.rows.length > 1) {
-		  tbl.deleteRow(1);
+		while(tbl.rows.length > 0) {
+		  tbl.deleteRow(0);
 		}
 		for(var i = 0; i < dish.ingredients.length; i++){
 	        var tr = tbl.insertRow();	        
@@ -65,6 +65,7 @@ var DishDetailsView = function (container, model, side_bar_view) {
 		this.addtoMenu = container.find("#addtoMenu");
 		addtoMenu.addEventListener("click", function() {
 	  		model.addDishToMenu(dish.id);
+	  		console.log(dish.id)
 	  		side_bar_view.refresh();
 	  		dishSearchView.style.display = "block"
 	  		dishDetailsView.style.display = "none"

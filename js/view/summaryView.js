@@ -17,11 +17,10 @@ var SummaryView = function (container, model, print_view) {
 		summaryView.style.display = "none"
 	});
 
-	this.loadsummary = function(){
+	this.loadsummary = function(dishlist){
 		var num_guests = container.find("#num_guests");
 		num_guests.html(model.getNumberOfGuests()); 
-
-		var dishlist = model.getFullMenu();
+		console.log(dishlist);
 
 		var view = document.getElementById("selectedDishMenu");
 		//remove other dishes previously added so that there is no repetitions
@@ -32,7 +31,7 @@ var SummaryView = function (container, model, print_view) {
 	    for(i = 0; i < dishlist.length; i++){
 
 		    var div = document.createElement('div');
-		    div.className ="col-md-2";
+		    div.className ="col-md-3";
 		    div.id = dishlist[i].id;
 		    var fig = document.createElement('figure');
 		    fig.className ="gallery"

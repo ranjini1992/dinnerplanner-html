@@ -19,32 +19,50 @@
 	  	</div>
 
 			<div class="row">
-				<div id="sidebarView" style="display: none">	
+				<div id="sidebarView" style="display: none">
 					<div class="col-md-3">	
-						<h4> My Dinner </h4>
-						People  <input type="text" name="numGuests">
-						<div class="btn-group-vertical">
-							<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
-							<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
-						</div>
-						
-						<div class="row buffer">
-		   				<table id="draftMenu" style="width:100%" >
-		   					<tr>
-			          	<th>Dish Name</th>
-			          	<th>Cost</th>
-		           	</tr>
-		           </table>
-		         </div>
-	           <div class="row buffer">
-							<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
-						</div>
+						 <nav class="navbar navbar-default navbar-fixed-side">
+							 	<div class="navbar-header">
+							 	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	              </button>
+	              <h4><span class="navbar-brand pull left">My Dinner</span></h4>
+	            </div>
+	            <div id="navbar" class="navbar-collapse collapse">
+	              <ul class="nav navbar-nav">
+	              	<div class="row buffer">
+										People  <input type="text" name="numGuests" style="width: 50px; height: 30px">
+										<div class="btn-group-vertical" >
+											<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+											<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+										</div>
+									</div>
+									
+									<div class="row buffer">
+					   				<table style="width:100%" >
+					   					<tr>
+						          	<th>Dish Name</th>
+						          	<th>Cost</th>
+					           	</tr>
+					           </table>
+					           <table id="draftMenu" style="width:100%" >
+					           </table>
+					         </div>
+				           <div class="row buffer">
+										<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
+									</div>
+								</ul>
+							</div>
+						</nav>
 					</div>
 				</div>
 
 				<div id="dishSearchView" style="display: none">	
 					<div class="col-md-9">
-					<div class="row">	
+					<div class="row buffer">	
 							<h4> FIND A DISH </h4>
 							<div class="col-md-3">
 							 <input type="text" name="search_input" placeholder="Enter key words">
