@@ -16,11 +16,25 @@
     text-align: center;
 }
 
+.totalgallery {
+    margin: 5px;
+    padding: 1em;
+    float: bottom;
+    width: 100px;
+    height:100px;
+    text-align: center;
+}
+
 .buffer { margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:10px; }
 
 .ingredientbox {
     border: 1px solid #ccc;
     color: black;
     background-color: wheat;
+}
+
+.totaltext {
+    color: brown; 
+    float:right;"
 }
 

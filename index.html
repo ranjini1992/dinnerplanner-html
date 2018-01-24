@@ -23,12 +23,16 @@
 					<div class="col-md-3">	
 						 <nav class="navbar navbar-default navbar-fixed-side">
 							 	<div class="navbar-header">
+
 							 	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
 	                <span class="sr-only">Toggle navigation</span>
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
+	               
 	              </button>
+ 								<span id="totalSidebarTop" class="navbar-toggle totaltext"></span>
 	              <h4><span class="navbar-brand pull left">My Dinner</span></h4>
 	            </div>
 	            <div id="navbar" class="navbar-collapse collapse">
@@ -51,11 +55,15 @@
 					           <table id="draftMenu" style="width:100%" >
 					           </table>
 					         </div>
+					         <div class="row buffer">
+					         		<span id="totalSidebarBottom" class="totaltext"></span>
+					         </div>
 				           <div class="row buffer">
 										<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
 									</div>
 								</ul>
 							</div>
+
 						</nav>
 					</div>
 				</div>
@@ -137,11 +145,11 @@
 							<div class="row buffer">
 								<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoEditButton" class="btn btn-warning" style="float:right;">Go back and edit Dinner</button>
 							</div>
-							<div class="row buffer">
 								<div id="selectedDishMenu">
 								 <!-- Summary Javascript will add a list of dish images here-->
 								</div>
-							</div>		
+
+
 							<div class="row buffer">
 								<button id="printRecipe" class="btn btn-warning center-block">Print Full Recipe</button>
 							</div>
