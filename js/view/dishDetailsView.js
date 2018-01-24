@@ -6,7 +6,10 @@ var DishDetailsView = function (container, model, side_bar_view) {
 
 	var d_id;
 
+	var num_guests = container.find("#num_guests");
+
 	this.load = function(id){
+		num_guests.html(model.getNumberOfGuests()); 
 		d_id = id
 		var dish = model.getDish(id);
 		var dish_total_price = model.getDishPrice(id);

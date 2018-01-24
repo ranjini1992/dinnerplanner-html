@@ -14,6 +14,7 @@ var PrintView = function (container, model) {
 	});
 	
 	this.printMenu = function() {
+		num_guests.html(model.getNumberOfGuests()); 
 		var view = document.getElementById("printMenu"); 
 		var dishlist = model.getFullMenu();
 
