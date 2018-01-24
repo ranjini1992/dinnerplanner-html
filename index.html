@@ -38,136 +38,137 @@
 	            <div id="navbar" class="navbar-collapse collapse">
 	              <ul class="nav navbar-nav">
 	              	<div class="row buffer">
-										People  <input type="text" name="numGuests" style="width: 50px; height: 30px">
-										<div class="btn-group-vertical" >
-											<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
-											<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
-										</div>
-									</div>
+						People  <input type="text" name="numGuests" style="width: 50px; height: 30px">
+						<div class="btn-group-vertical" >
+							<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+							<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+						</div>
+					</div>
 									
-									<div class="row buffer">
-					   				<table style="width:100%" >
-					   					<tr>
-						          	<th>Dish Name</th>
-						          	<th>Cost</th>
-					           	</tr>
-					           </table>
-					           <table id="draftMenu" style="width:100%" >
-					           </table>
-					         </div>
-					         <div class="row buffer">
-					         		<span id="totalSidebarBottom" class="totaltext"></span>
-					         </div>
-				           <div class="row buffer">
-										<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
-									</div>
-								</ul>
-							</div>
+					<div class="row buffer">
+	   				<table class="full-width" >
+	   					<tr>
+				          	<th class="full-width">Dish Name</th>
+				          	<th class="full-width">Cost</th>
+			           	</tr>
+			           </table>
+			           <table id="draftMenu" class="full-width" >
+			           </table>
+			         </div>
+			         <div class="row buffer">
+			         		<span id="totalSidebarBottom" class="totaltext"></span>
+			         </div>
+		           <div class="row buffer">
+						<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
+					</div>
+				</ul>
+			</div>
 
-						</nav>
+				</nav>
+			</div>
+		</div>
+
+		<div id="dishSearchView" style="display: none">	
+			<div class="col-md-9">
+			<div class="row buffer">	
+					<h4> FIND A DISH </h4>
+					<div class="col-md-3">
+					 <input type="text" name="search_input" class="search-input" placeholder="Enter key words">
+					</div>
+					<div class="col-md-3">
+					 <select id="search_dropdown" class="search-input">
+					  <option value="All">All</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<button id="searchDish" class="btn btn-warning">Search</button>
+				</div>
+			</div>
+
+			<div class="row buffer">
+				<div id="dishItemView">
+				 <!-- DishItem Javascript will add a list of dish images here-->
+				</div>		
+			</div>
+			</div>
+		</div>
+
+		<div id="dishDetailsView" style="display: none">	
+			<div class="col-md-4">
+				<div id="dishname" class="row buffer">
+				</div>
+				<div id="dishpicture" class="row buffer">
+				</div>
+				
+				<div class="row buffer">
+					<button id="backButton" class="btn btn-warning">Back to Search</button>
+				</div>
+				<div class="row buffer">
+					<h3>PREPARATION</h3> 
+				</div>
+				<div id="dishprep" class="row buffer">
+				</div>
+			</div>
+			<div class="col-md-5 ingredientbox">
+				<div class="row buffer">
+					<h4> INGREDIENTS FOR 4 PEOPLE </h4>
+				</div>
+				<div class="row buffer">
+					<table id="ingredientsMenu" class="full-width" >
+	   					
+	        </table>
+	      </div>
+	      <div class="row buffer">
+	      	<button id="addtoMenu" class="btn btn-warning">Add to Menu</button>
+	      	<span class="float-right" id="total_price"></span>
+	      </div>
+			</div>
+		</div>
+
+		<div id="exampleView">
+			<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="row buffer">
+						<p class="text-center">
+						 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
+						</p>
+					</div>
+					<div class="row buffer">
+						<button id="createDinner" class="btn btn-warning center-block">Create new dinner</button>
 					</div>
 				</div>
+			<div class="col-md-2"></div>
+		</div>
 
-				<div id="dishSearchView" style="display: none">	
-					<div class="col-md-9">
-					<div class="row buffer">	
-							<h4> FIND A DISH </h4>
-							<div class="col-md-3">
-							 <input type="text" name="search_input" placeholder="Enter key words">
-							</div>
-							<div class="col-md-2">
-							 <select id="search_dropdown">
-							  <option value="All">All</option>
-							</select>
-						</div>
-						<div class="col-md-4">
-							<button id="searchDish" class="btn btn-warning">Search</button>
+		<div id="summaryView" style="display: none">
+				<div class="col-md-12">
+					<div class="row buffer">
+						<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoEditButton" class="btn btn-warning float-right" >Go back and edit Dinner</button>
+					</div>
+					<div class="row buffer"
+						<div id="selectedDishMenu">
+						 <!-- Summary Javascript will add a list of dish images here-->
 						</div>
 					</div>
 
 					<div class="row buffer">
-						<div id="dishItemView">
-						 <!-- DishItem Javascript will add a list of dish images here-->
-						</div>		
-					</div>
+						<button id="printRecipe" class="btn btn-warning center-block">Print Full Recipe</button>
 					</div>
 				</div>
+		</div>
 
-				<div id="dishDetailsView" style="display: none">	
-					<div class="col-md-4">
-						<div id="dishname" class="row buffer">
-						</div>
-						<div id="dishpicture" class="row buffer">
-						</div>
-						
-						<div class="row buffer">
-							<button id="backButton" class="btn btn-warning">Back to Search</button>
-						</div>
-						<div class="row buffer">
-							<h3>PREPARATION</h3> 
-						</div>
-						<div id="dishprep" class="row buffer">
-						</div>
-					</div>
-					<div class="col-md-5 ingredientbox">
-						<div class="row buffer">
-							<h4> INGREDIENTS FOR 4 PEOPLE </h4>
-						</div>
-						<div class="row buffer">
-							<table id="ingredientsMenu" style="width:100%" >
-			   					
-			        </table>
-			      </div>
-			      <div class="row buffer">
-			      	<button id="addtoMenu" class="btn btn-warning">Add to Menu</button>
-			      	<span style="float:right;" id="total_price"></span>
-			      </div>
-					</div>
+		<div id="printView" style="display: none">
+			<div class="col-md-12">
+				<div class="row buffer">
+					<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoSummaryButton" class="btn btn-warning float-right" >Go back and edit Dinner</button>
 				</div>
-
-				<div id="exampleView">
-					<div class="col-md-2"></div>
-						<div class="col-md-8">
-							<div class="row buffer">
-								<p class="text-center">
-								 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim. Diam sit amet nisl suscipit adipiscing bibendum est. Facilisi cras fermentum odio eu feugiat pretium nibh. Morbi tincidunt ornare massa eget egestas purus. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Faucibus turpis in eu mi bibendum. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Non nisi est sit amet facilisis magna etiam. Rhoncus est pellentesque elit ullamcorper dignissim cras. Non enim praesent elementum facilisis leo vel fringilla est.
-								</p>
-							</div>
-							<div class="row buffer">
-								<button id="createDinner" class="btn btn-warning center-block">Create new dinner</button>
-							</div>
-						</div>
-					<div class="col-md-2"></div>
+				<div id="printMenu">
 				</div>
-
-				<div id="summaryView" style="display: none">
-						<div class="col-md-12">
-							<div class="row buffer">
-								<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoEditButton" class="btn btn-warning" style="float:right;">Go back and edit Dinner</button>
-							</div>
-								<div id="selectedDishMenu">
-								 <!-- Summary Javascript will add a list of dish images here-->
-								</div>
-
-
-							<div class="row buffer">
-								<button id="printRecipe" class="btn btn-warning center-block">Print Full Recipe</button>
-							</div>
-						</div>
-				</div>
-
-				<div id="printView" style="display: none">
-					<div class="col-md-12">
-						<div class="row buffer">
-								<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoSummaryButton" class="btn btn-warning" style="float:right;">Go back and edit Dinner</button>
-						</div>
-						<div id="printMenu">
-						</div>
-					</div>
-				</div>
-
 			</div>
 		</div>
+
+	</div>
+	</div>
 
 
     <!-- jQuery -->

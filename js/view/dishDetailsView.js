@@ -4,7 +4,10 @@
  */ 
 var DishDetailsView = function (container, model, side_bar_view) {
 
+	var d_id;
+
 	this.load = function(id){
+		d_id = id
 		var dish = model.getDish(id);
 		var dish_total_price = model.getDishPrice(id);
 
@@ -56,20 +59,21 @@ var DishDetailsView = function (container, model, side_bar_view) {
 	    var total_price = container.find("#total_price");
 	    total_price.html("Total : SEK " + dish_total_price.toFixed(2)); 
 
-	    this.backButton = container.find("#backButton");
-		backButton.addEventListener("click", function() {
-	  		dishSearchView.style.display = "block"
-	  		dishDetailsView.style.display = "none"
-		});
+	}
 
-		this.addtoMenu = container.find("#addtoMenu");
-		addtoMenu.addEventListener("click", function() {
-	  		model.addDishToMenu(dish.id);
-	  		console.log(dish.id)
-	  		side_bar_view.refresh();
-	  		dishSearchView.style.display = "block"
-	  		dishDetailsView.style.display = "none"
-		});
-	}  
+    this.backButton = container.find("#backButton");
+	backButton.addEventListener("click", function() {
+  		dishSearchView.style.display = "block"
+  		dishDetailsView.style.display = "none"
+	});
+
+	this.addtoMenu = container.find("#addtoMenu");
+	addtoMenu.addEventListener("click", function() {
+		model.addDishToMenu(d_id);
+  		side_bar_view.updateTable();
+  		dishSearchView.style.display = "block"
+  		dishDetailsView.style.display = "none"
+	});
+	  
 
 }

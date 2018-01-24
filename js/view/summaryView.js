@@ -20,7 +20,6 @@ var SummaryView = function (container, model, print_view) {
 	this.loadsummary = function(){
 		var num_guests = container.find("#num_guests");
 		num_guests.html(model.getNumberOfGuests()); 
-		console.log(dishlist);
 		var dishlist = model.getFullMenu();
 		
 
@@ -32,18 +31,19 @@ var SummaryView = function (container, model, print_view) {
 
 	    for(var i = 0; i < dishlist.length ; i++){
 
+	    	var dish = model.getDish(dishlist[i]);
+
 		    var div = document.createElement('div');
 		    div.className ="col-md-3";
-		    console.log(dishlist[i])
-		    div.id = dishlist[i].id;
+		    div.id = dishlist[i];
 		    var fig = document.createElement('figure');
 		    fig.className ="gallery"
 		    var img = document.createElement('img');
-		    img.style.width = img.style.height = '100px'
-		    img.src = 'images/' + dishlist[i].image;
+		    img.style.width = img.style.height = '90px'
+		    img.src = 'images/' + dish.image;
 		    var caption = document.createElement('figcaption');
-		    var caption_text = document.createTextNode(dishlist[i].name);
-		    var dish_total_price = model.getDishPrice(dishlist[i].id);
+		    var caption_text = document.createTextNode(dish.name);
+		    var dish_total_price = model.getDishPrice(dish.id);
 		    var price_text = document.createTextNode(dish_total_price.toFixed(2) + ' SEK');
 
 		    //appending stuff in reverse order

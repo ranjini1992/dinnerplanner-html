@@ -6,7 +6,8 @@ var SidebarView = function (container, model, summary_view) {
 
 	var numGuests = document.getElementsByName("numGuests")[0];
 	this.numGuests = numGuests;
-	this.draftMenu = container.find("#draftMenu");
+	numGuests.value = model.getNumberOfGuests();
+
 	var selected_dishes;
 	var totaltop = container.find("#totalSidebarTop");
 	var totalbottom = container.find("#totalSidebarBottom");
@@ -14,7 +15,9 @@ var SidebarView = function (container, model, summary_view) {
 
 	sidebar = this;
 
-	var updateTable = function(){
+	this.updateTable = function(){
+		var draftMenu = document.getElementById("draftMenu");
+
 		numGuests.value = model.getNumberOfGuests();
 		selected_dishes = model.getFullMenu();
 		var tbl  = draftMenu;
@@ -25,11 +28,12 @@ var SidebarView = function (container, model, summary_view) {
 	    for(var i = 0; i < selected_dishes.length; i++){
 	        var tr = tbl.insertRow();	        
 	        var td = tr.insertCell();
-	        td.appendChild(document.createTextNode(selected_dishes[i].name));
+	        var dish = model.getDish(selected_dishes[i]);
+	        td.appendChild(document.createTextNode(dish.name));
 
 	        var td = tr.insertCell();
-	        var dishPrice = model.getDishPrice(selected_dishes[i].id);
-	        td.appendChild(document.createTextNode(dishPrice));     
+	        var dishPrice = model.getDishPrice(selected_dishes[i]);
+	        td.appendChild(document.createTextNode(dishPrice.toFixed(2)));     
 	        
 	    }
 	    var total_price = model.getTotalMenuPrice().toFixed(2);
@@ -37,56 +41,41 @@ var SidebarView = function (container, model, summary_view) {
 		totaltop.html(total_price_text);
 		totalbottom.html(total_price_text);
 		
-			this.confirmDinner = document.getElementById("confirmDinner");
-			confirmDinner.addEventListener("click", function() {
-					if(total_price != 0){
+		this.confirmDinner = document.getElementById("confirmDinner");
+		confirmDinner.addEventListener("click", function() {
+			if(total_price != 0){
 
-				  		sidebarView.style.display = "none";
-				  		dishSearchView.style.display = "none";
-				  		dishDetailsView.style.display = "none";
-				  		summary_view.loadsummary();
-				  		summaryView.style.display = "block";
-				  	}
-			});
-
-
+		  		sidebarView.style.display = "none";
+		  		dishSearchView.style.display = "none";
+		  		dishDetailsView.style.display = "none";
+		  		summary_view.loadsummary();
+		  		summaryView.style.display = "block";
+		  	}
+		});
 		
 	}
 
-	this.refresh = function(){
-		
-		updateTable();
-
-	    numGuests.addEventListener("change", function() {
-			model.setNumberOfGuests(numGuests.value);
-		});
-
+	numGuests.addEventListener("change", function() {
+		model.setNumberOfGuests(numGuests.value);
+	});
 		
 
+	this.addGuest = container.find("#addGuest");
+	addGuest.addEventListener("click", function() {
+		var num_of_guests = model.getNumberOfGuests();
+  		model.setNumberOfGuests(num_of_guests+1);
+  		sidebar.updateTable();
+	});
 
-		this.addGuest = container.find("#addGuest");
-		addGuest.addEventListener("click", function() {
-			var num_of_guests = model.getNumberOfGuests();
-	  		model.setNumberOfGuests(num_of_guests+1);
-	  		updateTable();
-		});
+	this.removeGuest = container.find("#removeGuest");
+	removeGuest.addEventListener("click", function() {
+		var num_of_guests = model.getNumberOfGuests();
+		if(num_of_guests >= 1 ){
+	  		model.setNumberOfGuests(num_of_guests-1);
+	  	} 
+	  	sidebar.updateTable(); 	
 
-		this.removeGuest = container.find("#removeGuest");
-		removeGuest.addEventListener("click", function() {
-			var num_of_guests = model.getNumberOfGuests();
-			if(num_of_guests >= 1 ){
-		  		model.setNumberOfGuests(num_of_guests-1);
-		  	} 
-		  	updateTable(); 	
-
-		});
-
-		
-
-	}
-
-	
-	this.refresh();	
+	});
 	
 }
  

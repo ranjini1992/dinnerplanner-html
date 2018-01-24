@@ -25,6 +25,14 @@
     text-align: center;
 }
 
+.search-input {
+    width: 200px;
+}
+
+.full-width {
+    width: 100%;
+}
+
 .buffer { margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:10px; }
 
 .ingredientbox {
@@ -35,6 +43,14 @@
 
 .totaltext {
     color: brown; 
-    float:right;"
+    float:right;
+}
+
+.invisible {
+    display: none;
+}
+
+.float-right {
+    float: right;
 }
 

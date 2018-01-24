@@ -34,7 +34,6 @@ var DishItemView = function (container, model, dish_details_view) {
 		    view.appendChild(div);
 
 		    div.addEventListener("click", function() {
-				console.log(this.id);
 				dish_details_view.load(this.id);
 				dishSearchView.style.display = "none"
   				dishDetailsView.style.display = "block"

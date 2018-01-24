@@ -8,8 +8,6 @@ var DinnerModel = function() {
 		selected_dishes: []
 	};
 
-	var dish_types = ['starter', 'main dish', 'dessert']
-
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
 		menu.num_guests = num;
@@ -55,23 +53,12 @@ var DinnerModel = function() {
 		//TODO Lab 1
 		var ingredients = []
 		for(key in menu.selected_dishes){
-			for (ingredient in menu.selected_dishes[key].ingredients){
+			var dish = this.getDish(id);
+			for (ingredient in dish[key].ingredients){
 				ingredients.push(ingredient);
 			}
 		}
 		return ingredients;
-	}
-
-	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
-		var total_menu_price = 0;
-		for(i = 0; i < menu.selected_dishes.length; i++){
-			for (j = 0; j < menu.selected_dishes[i].ingredients.length ; j++){
-				total_menu_price += menu.selected_dishes[i].ingredients[j].price * menu.num_guests;
-			}
-		}
-		return total_menu_price;
 	}
 
 	//function that returns a dish of specific ID
@@ -83,7 +70,34 @@ var DinnerModel = function() {
 		}
 	}
 
+	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	this.getTotalMenuPrice = function() {
+		//TODO Lab 1
+		var total_menu_price = 0;
+		for(i = 0; i < menu.selected_dishes.length; i++){
+			var dish = this.getDish(menu.selected_dishes[i]);
+			for (j = 0; j < dish.ingredients.length ; j++){
+				total_menu_price += dish.ingredients[j].price * menu.num_guests;
+			}
+		}
+		return total_menu_price;
+
+	}
+
 	this.getDishTypeList = function(){
+		var dish_types = [];
+		for(i = 0; i < dishes.length; i++){
+			var found = false;
+			for(j = 0; j < dish_types.length; j++){
+				if(dishes[i].type == dish_types[j]){
+					found = true
+					break;
+				}
+			}
+			if(!found){
+				dish_types.push(dishes[i].type);
+			}
+		}
 		return dish_types;
 	}
 
@@ -91,16 +105,15 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1
-		var dish = this.getDish(id);
-		menu.selected_dishes.push(dish);
+		menu.selected_dishes.push(id);
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
 		for (var key = menu.selected_dishes.length - 1; key >= 0; key --) {
-    		if (menu.selected_dishes[key].id === id) {
-        		menu.selected_dishes.splice(i, 1);
+    		if (menu.selected_dishes[key] === id) {
+        		menu.selected_dishes.splice(key, 1);
         		break;       
     		}
 		}

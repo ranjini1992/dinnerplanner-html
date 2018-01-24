@@ -22,8 +22,6 @@ var DishSearchView = function (container, model, dish_item_view) {
 		var search_category = search_dropdown.value;
 
 		var filtered_dishes = model.getAllDishes(search_category,search_input);
-		//var filtered_dishes = model.getAllDishes("dessert","vanilla");
-		console.log(filtered_dishes);
 		dish_item_view.createListOfAllDishes(filtered_dishes);
 
 	});
