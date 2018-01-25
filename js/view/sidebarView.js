@@ -11,7 +11,10 @@ var SidebarView = function (container, model, summary_view) {
 	var selected_dishes;
 	var totaltop = container.find("#totalSidebarTop");
 	var totalbottom = container.find("#totalSidebarBottom");
-	var total_price;
+	var total_price = 0;
+	var	total_price_text = 'SEK ' + total_price.toFixed(2);
+	totaltop.html(total_price_text);
+	totalbottom.html(total_price_text);
 
 	sidebar = this;
 
@@ -36,7 +39,7 @@ var SidebarView = function (container, model, summary_view) {
 	        td.appendChild(document.createTextNode(dishPrice.toFixed(2)));     
 	        
 	    }
-	    var total_price = model.getTotalMenuPrice().toFixed(2);
+	    total_price = model.getTotalMenuPrice().toFixed(2);
 		total_price_text = 'SEK ' + total_price;
 		totaltop.html(total_price_text);
 		totalbottom.html(total_price_text);
