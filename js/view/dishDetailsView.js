@@ -22,10 +22,12 @@ var DishDetailsView = function (container, model, side_bar_view) {
 
 	    var div_image = document.getElementById("dishpicture");
 	    div_image.removeChild(div_image.lastChild);
+	    div_image.className = "biggallery"
 	    var fig = document.createElement('figure');
 	    var img = document.createElement('img');
-	    img.style.width = img.style.height = '200px'
+	    fig.style.height = '100px'
 	    img.src = 'images/' + dish.image;
+	    fig.className ="square-box"
 	    var caption = document.createElement('figcaption');
 		var caption_text = document.createTextNode('Dish Type: ' + dish.type);
 		caption.appendChild(caption_text);

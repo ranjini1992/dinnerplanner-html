@@ -25,6 +25,13 @@
     text-align: center;
 }
 
+.biggallery {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
 .search-input {
     width: 200px;
 }
@@ -54,3 +61,7 @@
     float: right;
 }
 
+.square-box {
+    margin: 10% auto;
+
+}
