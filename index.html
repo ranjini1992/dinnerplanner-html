@@ -14,55 +14,55 @@
 
   <body>
   	<div class="container">
-  		<div class="row header">
+  		<div class="row header buffer">
 	  			<h1> Dinner Planner </h1>
 	  	</div>
 
-			<div class="row">
+			<div class="row buffer">
 				<div id="sidebarView" style="display: none">
 					<div class="col-md-3">	
-						 <nav class="navbar navbar-default navbar-fixed-side">
-							 	<div class="navbar-header">
+						 <nav class="navbar navbar-default navbar-fixed-side box-shadow">
+						 	<div class="navbar-header">
 
-							 	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 
-	                <span class="sr-only">Toggle navigation</span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	               
-	              </button>
- 								<span id="totalSidebarTop" class="navbar-toggle totaltext"></span>
-	              <h4><span class="navbar-brand pull left">My Dinner</span></h4>
-	            </div>
-	            <div id="navbar" class="navbar-collapse collapse">
-	              <ul class="nav navbar-nav">
-	              	<div class="row buffer">
-						People  <input type="text" name="numGuests" style="width: 50px; height: 30px">
-						<div class="btn-group-vertical" >
-							<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
-							<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
-						</div>
-					</div>
+					                <span class="sr-only">Toggle navigation</span>
+					                <span class="icon-bar"></span>
+					                <span class="icon-bar"></span>
+					                <span class="icon-bar"></span>
+					               
+					            </button>
+								<span id="totalSidebarTop" class="navbar-toggle totaltext"></span>
+	              				<h4><span class="navbar-brand pull left">My Dinner</span></h4>
+	           				</div>
+				            <div id="navbar" class="navbar-collapse collapse">
+				              <ul class="nav navbar-nav">
+				              	<div class="row buffer">
+									People  <input type="text" name="numGuests" style="width: 50px; height: 30px">
+									<div class="btn-group-vertical" >
+										<button id="addGuest" class="btn btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+										<button id="removeGuest" class="btn btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+									</div>
+								</div>
 									
-					<div class="row buffer">
-	   				<table class="full-width" >
-	   					<tr>
-				          	<th class="full-width">Dish Name</th>
-				          	<th class="full-width">Cost</th>
-			           	</tr>
-			           </table>
-			           <table id="draftMenu" class="full-width" >
-			           </table>
-			         </div>
-			         <div class="row buffer">
-			         		<span id="totalSidebarBottom" class="totaltext"></span>
-			         </div>
-		           <div class="row buffer">
-						<button id="confirmDinner" class="btn btn-warning center-block">Confirm Dinner</button>
+							<div class="row buffer">
+			   				<table class="full-width" >
+			   					<tr>
+						          	<th class="full-width">Dish Name</th>
+						          	<th class="full-width">Cost</th>
+					           	</tr>
+					           </table>
+					           <table id="draftMenu" class="full-width" >
+					           </table>
+					         </div>
+					         <div class="row buffer">
+					         		<span id="totalSidebarBottom" class="totaltext"></span>
+					         </div>
+				           <div class="row buffer">
+								<button id="confirmDinner" class="btn btn-warning center-block box-shadow">Confirm Dinner</button>
+							</div>
+						</ul>
 					</div>
-				</ul>
-			</div>
 
 				</nav>
 			</div>
@@ -70,7 +70,7 @@
 
 		<div id="dishSearchView" style="display: none">	
 			<div class="col-md-9">
-			<div class="row buffer">	
+			<div class="row">	
 					<h4> FIND A DISH </h4>
 					<div class="col-md-3">
 					 <input type="text" name="search_input" class="search-input" placeholder="Enter key words">
@@ -81,7 +81,7 @@
 					</select>
 				</div>
 				<div class="col-md-3">
-					<button id="searchDish" class="btn btn-warning">Search</button>
+					<button id="searchDish" class="btn btn-warning box-shadow">Search</button>
 				</div>
 			</div>
 
@@ -101,7 +101,7 @@
 				</div>
 				
 				<div class="row buffer">
-					<button id="backButton" class="btn btn-warning">Back to Search</button>
+					<button id="backButton" class="btn btn-warning box-shadow">Back to Search</button>
 				</div>
 				<div class="row buffer">
 					<h3>PREPARATION</h3> 
@@ -116,12 +116,12 @@
 				<div class="row buffer">
 					<table id="ingredientsMenu" class="full-width" >
 	   					
-	        </table>
-	      </div>
-	      <div class="row buffer">
-	      	<button id="addtoMenu" class="btn btn-warning">Add to Menu</button>
-	      	<span class="float-right" id="total_price"></span>
-	      </div>
+	        		</table>
+	      		</div>
+		      	<div class="row buffer">
+		      		<button id="addtoMenu" class="btn btn-warning box-shadow">Add to Menu</button>
+		      		<span class="float-right" id="total_price"></span>
+		      	</div>
 			</div>
 		</div>
 
@@ -134,7 +134,7 @@
 						</p>
 					</div>
 					<div class="row buffer">
-						<button id="createDinner" class="btn btn-warning center-block">Create new dinner</button>
+						<button id="createDinner" class="btn btn-warning center-block box-shadow">Create new dinner</button>
 					</div>
 				</div>
 			<div class="col-md-2"></div>
@@ -143,7 +143,7 @@
 		<div id="summaryView" style="display: none">
 				<div class="col-md-12">
 					<div class="row buffer">
-						<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoEditButton" class="btn btn-warning float-right" >Go back and edit Dinner</button>
+						<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoEditButton" class="btn btn-warning float-right box-shadow" >Go back and edit Dinner</button>
 					</div>
 					<div class="row buffer"
 						<div id="selectedDishMenu">
@@ -152,7 +152,7 @@
 					</div>
 
 					<div class="row buffer">
-						<button id="printRecipe" class="btn btn-warning center-block">Print Full Recipe</button>
+						<button id="printRecipe" class="btn btn-warning center-block box-shadow">Print Full Recipe</button>
 					</div>
 				</div>
 		</div>
@@ -160,7 +160,7 @@
 		<div id="printView" style="display: none">
 			<div class="col-md-12">
 				<div class="row buffer">
-					<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoSummaryButton" class="btn btn-warning float-right" >Go back and edit Dinner</button>
+					<h3> My Dinner: <span id="num_guests"></span> people </h3><button id="backtoSummaryButton" class="btn btn-warning float-right box-shadow" >Go back and edit Dinner</button>
 				</div>
 				<div id="printMenu">
 				</div>

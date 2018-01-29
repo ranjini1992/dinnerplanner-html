@@ -2,8 +2,8 @@
 	padding: 1em;
 	color: black;
 	background-color: lightgray;
-	clear: left;
 	text-align: center;
+    box-shadow: 4px 4px 4px -4px rgba(0, 0, 0, 0.75);
 }
 
 .gallery {
@@ -14,6 +14,7 @@
     width: 150px;
     height:150px;
     text-align: center;
+    box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.75);
 }
 
 .totalgallery {
@@ -30,10 +31,17 @@
     width: 200px;
     height: 200px;
     text-align: center;
+    box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.75);
 }
 
 .search-input {
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 5px;
     width: 200px;
+    height: 35px;
+    background-color: white;
+    box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, 0.75);
 }
 
 .full-width {
@@ -46,11 +54,12 @@
     border: 1px solid #ccc;
     color: black;
     background-color: wheat;
+    box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.75);
 }
 
 .totaltext {
     color: brown; 
-    float:right;
+    float:right
 }
 
 .invisible {
@@ -63,5 +72,8 @@
 
 .square-box {
     margin: 10% auto;
+}
 
+.box-shadow {
+    box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.75);
 }
