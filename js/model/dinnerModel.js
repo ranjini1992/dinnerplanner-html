@@ -21,9 +21,9 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
-		for(key in menu.selected_dishes){
-			if(menu.selected_dishes[key].type == type) {
-				return menu.selected_dishes[key];
+		for(var i = 0; i < menu.selected_dishes.length; i++){
+			if(menu.selected_dishes[i].type == type) {
+				return menu.selected_dishes[i];
 			}
 		}
 	}
@@ -31,7 +31,7 @@ var DinnerModel = function() {
 	this.getDishPrice = function(id) {
 		//TODO Lab 1
 		var total_dish_price = 0;
-		for(i = 0; i < dishes.length; i++){
+		for(var i = 0; i < dishes.length; i++){
 			if(id == dishes[i].id){
 				for (j = 0; j < dishes[i].ingredients.length ; j++){
 					total_dish_price += Number(dishes[i].ingredients[j].price) *menu.num_guests;
@@ -52,10 +52,9 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		//TODO Lab 1
 		var ingredients = []
-		for(key in menu.selected_dishes){
-			var dish = this.getDish(id);
-			for (ingredient in dish[key].ingredients){
-				ingredients.push(ingredient);
+		for(var i = 0; i < dishes.length; i++){
+			for (var j = 0; j < dishes[i].ingredients.length; j++){
+				ingredients.push(dishes[i].ingredients[j]);
 			}
 		}
 		return ingredients;
@@ -63,9 +62,9 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
+	  for(var i = 0; i < dishes.length; i++){
+			if(dishes[i].id == id) {
+				return dishes[i];
 			}
 		}
 	}
@@ -74,9 +73,9 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
 		var total_menu_price = 0;
-		for(i = 0; i < menu.selected_dishes.length; i++){
+		for(var i = 0; i < menu.selected_dishes.length; i++){
 			var dish = this.getDish(menu.selected_dishes[i]);
-			for (j = 0; j < dish.ingredients.length ; j++){
+			for (var j = 0; j < dish.ingredients.length ; j++){
 				total_menu_price += dish.ingredients[j].price * menu.num_guests;
 			}
 		}
@@ -86,9 +85,9 @@ var DinnerModel = function() {
 
 	this.getDishTypeList = function(){
 		var dish_types = [];
-		for(i = 0; i < dishes.length; i++){
+		for(var i = 0; i < dishes.length; i++){
 			var found = false;
-			for(j = 0; j < dish_types.length; j++){
+			for(var j = 0; j < dish_types.length; j++){
 				if(dishes[i].type == dish_types[j]){
 					found = true
 					break;

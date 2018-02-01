@@ -23,7 +23,7 @@ var PrintView = function (container, model) {
 			view.removeChild(view.lastChild);
 		}
 
-		for(i = 0; i < dishlist.length; i++){
+		for(var i = 0; i < dishlist.length; i++){
 			var dish = model.getDish(dishlist[i]);
 
 	    	var div = document.createElement('div');

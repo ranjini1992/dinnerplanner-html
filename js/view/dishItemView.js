@@ -14,7 +14,7 @@ var DishItemView = function (container, model, dish_details_view) {
 			view.removeChild(view.lastChild);
 		}
 
-    	for(i = 0; i < dishlist.length; i++){
+    	for(var i = 0; i < dishlist.length; i++){
 
 		    var div = document.createElement('div');
 		    div.className ="col-md-3 gallery";
