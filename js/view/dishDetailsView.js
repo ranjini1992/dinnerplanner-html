@@ -4,23 +4,23 @@
  */ 
 var DishDetailsView = function (container, model, side_bar_view) {
 
-	var d_id;
-
+	var view = this;
 	var num_guests = container.find("#num_guests");
 
 	this.load = function(id){
+		view.dish_id = id;
+
 		num_guests.html(model.getNumberOfGuests()); 
-		d_id = id
 		var dish = model.getDish(id);
 		var dish_total_price = model.getDishPrice(id);
 
-		var div_heading = document.getElementById("dishname");
+		var div_heading = container.find("#dishname")[0];
 		div_heading.removeChild(div_heading.lastChild);
 	    var h4 = document.createElement("h4");
 		h4.textContent = dish.name;
 	    div_heading.appendChild(h4);
 
-	    var div_image = document.getElementById("dishpicture");
+	    var div_image = container.find("#dishpicture")[0];
 	    div_image.removeChild(div_image.lastChild);
 	    div_image.className = "biggallery"
 	    var fig = document.createElement('figure');
@@ -35,7 +35,7 @@ var DishDetailsView = function (container, model, side_bar_view) {
 		fig.appendChild(caption);
 	    div_image.appendChild(fig);
 
-	    var div_steps = document.getElementById("dishprep");
+	    var div_steps = container.find("#dishprep")[0];
 	    div_steps.removeChild(div_steps.lastChild);
 	    var steps = document.createTextNode(dish.description);
 	    div_steps.appendChild(steps);
@@ -67,18 +67,7 @@ var DishDetailsView = function (container, model, side_bar_view) {
 	}
 
     this.backButton = container.find("#backButton");
-	backButton.addEventListener("click", function() {
-  		dishSearchView.style.display = "block"
-  		dishDetailsView.style.display = "none"
-	});
 
 	this.addtoMenu = container.find("#addtoMenu");
-	addtoMenu.addEventListener("click", function() {
-		model.addDishToMenu(d_id);
-  		side_bar_view.updateTable();
-  		dishSearchView.style.display = "block"
-  		dishDetailsView.style.display = "none"
-	});
 	  
-
 }

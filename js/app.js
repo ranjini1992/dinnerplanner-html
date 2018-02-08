@@ -2,14 +2,83 @@ $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
 	
-	// And create the instance of ExampleView
-	var exampleView = new ExampleView($("#exampleView"));
+	var exampleView = new ExampleView($("#exampleView"), model);
 	var printView = new PrintView($("#printView"), model);
 	var summaryView = new SummaryView($("#summaryView"), model, printView);
-	var sidebarView = new SidebarView($("#sidebarView"), model, summaryView);
+	var sidebarView = new SidebarView($("#sidebarView"), model);
 	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model, sidebarView);
 	var dishItemView = new DishItemView($("#dishItemView"), model, dishDetailsView);
-	var dishSearchView = new DishSearchView($("#dishSearchView"), model, dishItemView);
+	var dishSearchView = new DishSearchView($("#dishSearchView"), model);
+
+	var exampleController = new ExampleController(exampleView, this);
+	var sidebarController = new SidebarController(sidebarView, model, this);
+	var dishSearchController = new DishSearchController(dishSearchView, model, this);
+	var printController = new PrintController(printView, model, this);
+	var summaryController = new SummaryController(summaryView, model, this);
+	var dishDetailsController = new DishDetailsController(dishDetailsView, model, this);
+	var dishItemController = new DishItemController(dishItemView, model, this);
+
+	this.route = function(action){
+		switch (action) {
+ 		case 'createDinner':
+			document.getElementById("exampleView").style.display = "none"; 
+			document.getElementById("sidebarView").style.display = "block";
+			document.getElementById("dishSearchView").style.display = "block";
+			document.getElementById("dishItemView").style.display = "block";
+			break;
+		
+		case 'confirmDinner':
+			document.getElementById("sidebarView").style.display = "none";
+	  		document.getElementById("dishSearchView").style.display = "none";
+	  		document.getElementById("dishDetailsView").style.display = "none";
+	  		document.getElementById("summaryView").style.display = "block";
+	  		summaryView.loadsummary();
+			break;
+
+		case 'backtoEdit':
+			document.getElementById("sidebarView").style.display = "block";
+  			document.getElementById("dishSearchView").style.display = "block";
+  			document.getElementById("summaryView").style.display = "none";
+			break;
+
+		case 'showDishDetails':
+			document.getElementById("dishSearchView").style.display = "none"
+  			document.getElementById("dishDetailsView").style.display = "block"
+  			break;
+
+  		case 'showDishItems':
+  			document.getElementById("dishSearchView").style.display = "block"
+  			document.getElementById("dishDetailsView").style.display = "none"
+  			break;
+
+  		case 'addDish':
+  			sidebarView.updateTable();
+	  		document.getElementById("dishSearchView").style.display = "block"
+	  		document.getElementById("dishDetailsView").style.display = "none"
+  			break;
+
+		case 'printRecipe':
+			printView.printMenu();
+			document.getElementById("printView").style.display = "block"
+			document.getElementById("summaryView").style.display = "none"
+			break;
+
+		case 'backtoSummary':
+			document.getElementById("printView").style.display = "none"
+  			document.getElementById("summaryView").style.display = "block"
+			break;
+		}
+	}
+
+	this.reloadDishItemView = function(dishlist){
+		dishItemView.createListOfAllDishes(dishlist);
+	}
+
+	this.reloadDishDetailsView = function(id){
+		dishDetailsView.load(id);
+	}
+
+
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

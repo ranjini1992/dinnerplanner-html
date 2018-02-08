@@ -2,7 +2,7 @@
  * 
 
  */ 
-var SidebarView = function (container, model, summary_view) {
+var SidebarView = function (container, model) {
 
 	var numGuests = document.getElementsByName("numGuests")[0];
 	this.numGuests = numGuests;
@@ -19,7 +19,7 @@ var SidebarView = function (container, model, summary_view) {
 	sidebar = this;
 
 	this.updateTable = function(){
-		var draftMenu = document.getElementById("draftMenu");
+		var draftMenu = container.find("#draftMenu")[0];
 
 		numGuests.value = model.getNumberOfGuests();
 		selected_dishes = model.getFullMenu();
@@ -42,43 +42,13 @@ var SidebarView = function (container, model, summary_view) {
 	    total_price = model.getTotalMenuPrice().toFixed(2);
 		total_price_text = 'SEK ' + total_price;
 		totaltop.html(total_price_text);
-		totalbottom.html(total_price_text);
-		
-		this.confirmDinner = document.getElementById("confirmDinner");
-		confirmDinner.addEventListener("click", function() {
-			if(total_price != 0){
-
-		  		sidebarView.style.display = "none";
-		  		dishSearchView.style.display = "none";
-		  		dishDetailsView.style.display = "none";
-		  		summary_view.loadsummary();
-		  		summaryView.style.display = "block";
-		  	}
-		});
-		
+		totalbottom.html(total_price_text);	
 	}
-
-	numGuests.addEventListener("change", function() {
-		model.setNumberOfGuests(numGuests.value);
-	});
-		
-
+	
 	this.addGuest = container.find("#addGuest");
-	addGuest.addEventListener("click", function() {
-		var num_of_guests = model.getNumberOfGuests();
-  		model.setNumberOfGuests(num_of_guests+1);
-  		sidebar.updateTable();
-	});
-
 	this.removeGuest = container.find("#removeGuest");
-	removeGuest.addEventListener("click", function() {
-		var num_of_guests = model.getNumberOfGuests();
-		if(num_of_guests >= 1 ){
-	  		model.setNumberOfGuests(num_of_guests-1);
-	  	} 
-	  	sidebar.updateTable(); 	
+	this.confirmDinner = container.find("#confirmDinner");
 
-	});
 	
 }
  

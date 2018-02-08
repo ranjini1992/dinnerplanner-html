@@ -5,17 +5,8 @@
 var SummaryView = function (container, model, print_view) {
 
 	this.backtoEditButton = container.find("#backtoEditButton");
-	backtoEditButton.addEventListener("click", function() {
-		sidebarView.style.display = "block"
-  		dishSearchView.style.display = "block"
-  		summaryView.style.display = "none"
-	});
 	this.printRecipe = container.find("#printRecipe");
-	printRecipe.addEventListener("click", function() {
-		print_view.printMenu();
-		printView.style.display = "block"
-		summaryView.style.display = "none"
-	});
+
 
 	this.loadsummary = function(){
 		var num_guests = container.find("#num_guests");
@@ -23,7 +14,7 @@ var SummaryView = function (container, model, print_view) {
 		var dishlist = model.getFullMenu();
 		
 
-		var view = document.getElementById("selectedDishMenu");
+		var view = container.find("#selectedDishMenu")[0];
 		//remove other dishes previously added so that there is no repetitions
 		while(view.lastChild){
     			view.removeChild(view.lastChild);

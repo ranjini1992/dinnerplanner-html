@@ -8,14 +8,10 @@ var PrintView = function (container, model) {
 	num_guests.html(model.getNumberOfGuests()); 
 
 	this.backtoSummaryButton = container.find("#backtoSummaryButton");
-		backtoSummaryButton.addEventListener("click", function() {
-  		printView.style.display = "none"
-  		summaryView.style.display = "block"
-	});
 	
 	this.printMenu = function() {
 		num_guests.html(model.getNumberOfGuests()); 
-		var view = document.getElementById("printMenu"); 
+		var view = container.find("#printMenu")[0]; 
 		var dishlist = model.getFullMenu();
 
 		//remove other dishes previously added so that there is no repetitions

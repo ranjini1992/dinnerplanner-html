@@ -2,7 +2,7 @@
  * 
 
  */ 
-var DishSearchView = function (container, model, dish_item_view) {
+var DishSearchView = function (container, model) {
 
 	this.search_dropdown = container.find("#search_dropdown");
 	
@@ -17,12 +17,6 @@ var DishSearchView = function (container, model, dish_item_view) {
 	loadDropDownList();
 
 	this.searchDish = container.find("#searchDish");
-	searchDish.addEventListener("click", function() {
-		var search_input = document.getElementsByName("search_input")[0].value;
-		var search_category = search_dropdown.value;
+	this.searchText = document.getElementsByName("search_input")[0];
 
-		var filtered_dishes = model.getAllDishes(search_category,search_input);
-		dish_item_view.createListOfAllDishes(filtered_dishes);
-
-	});
 }

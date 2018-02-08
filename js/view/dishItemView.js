@@ -5,11 +5,11 @@
 var DishItemView = function (container, model, dish_details_view) {
 
 	var all_dishes = model.getAllDishes();
+	this.container = container;
 
     this.createListOfAllDishes = function(dishlist) {
 
-    	var view = document.getElementById("dishItemView");
-    	//remove other dishes previously added so that there is no repetitions
+    	var view = container[0];
 		while(view.lastChild){
 			view.removeChild(view.lastChild);
 		}
@@ -18,14 +18,13 @@ var DishItemView = function (container, model, dish_details_view) {
 
 		    var div = document.createElement('div');
 		    div.className ="col-md-3 gallery";
-		    div.id = dishlist[i].id;
 		    var fig = document.createElement('figure');
 		    var img = document.createElement('img');
 		    img.style.width = img.style.height = '80px'
 		    img.src = 'images/' + dishlist[i].image;
 		    var caption = document.createElement('figcaption');
 		    var caption_text = document.createTextNode(dishlist[i].name);
-
+		    div.id = fig.id =img.id =caption.id = dishlist[i].id;
 		    //appending stuff in reverse order
 		    caption.appendChild(caption_text);
 		    fig.appendChild(img);
@@ -33,11 +32,6 @@ var DishItemView = function (container, model, dish_details_view) {
 		    div.appendChild(fig);
 		    view.appendChild(div);
 
-		    div.addEventListener("click", function() {
-				dish_details_view.load(this.id);
-				dishSearchView.style.display = "none"
-  				dishDetailsView.style.display = "block"
-			});
 		}
     }
     this.createListOfAllDishes(all_dishes);

@@ -1,15 +1,7 @@
 /** ExampleView Object constructor
  * 
- */ 
-var ExampleView = function (container, model) {
 
-	//var numberOfGuests = container.find("#numberOfGuests");
+ */ 
+ var ExampleView = function (container, model) {
 	this.createDinner = container.find("#createDinner");
-	createDinner.addEventListener("click", function() {
-  		  exampleView.style.display = "none"
-  		  sidebarView.style.display = "block"
-  		  dishSearchView.style.display = "block"
-	});
-	
 }
- 

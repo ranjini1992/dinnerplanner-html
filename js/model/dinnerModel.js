@@ -1,5 +1,5 @@
 //DinnerModel Object constructor
-var DinnerModel = function() {
+var DinnerModel = function(exampleView, sidebarView) {
  
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
@@ -7,6 +7,14 @@ var DinnerModel = function() {
 		num_guests: 1,
 		selected_dishes: []
 	};
+
+	var currentView = 'exampleView';
+
+	this.notify = function(){
+		console.log("HELLO!!");
+		console.log(exampleView);
+
+	}
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
