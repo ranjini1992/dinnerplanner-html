@@ -3,15 +3,16 @@
 
  */ 
 var PrintView = function (container, model) {
+	model.addObserver(this);
 
 	var num_guests = container.find("#num_guests");
 	num_guests.html(model.getNumberOfGuests()); 
-
 	this.backtoSummaryButton = container.find("#backtoSummaryButton");
-	
-	this.printMenu = function() {
+	var view = container.find("#printMenu")[0]; 
+
+	this.update = function() {
 		num_guests.html(model.getNumberOfGuests()); 
-		var view = container.find("#printMenu")[0]; 
+		
 		var dishlist = model.getFullMenu();
 
 		//remove other dishes previously added so that there is no repetitions
@@ -54,5 +55,4 @@ var PrintView = function (container, model) {
 
 		}
 	}
-
 }

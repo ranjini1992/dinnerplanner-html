@@ -3,6 +3,7 @@
 
  */ 
 var SidebarView = function (container, model) {
+	model.addObserver(this);
 
 	var numGuests = document.getElementsByName("numGuests")[0];
 	this.numGuests = numGuests;
@@ -18,8 +19,12 @@ var SidebarView = function (container, model) {
 
 	sidebar = this;
 
-	this.updateTable = function(){
-		var draftMenu = container.find("#draftMenu")[0];
+	this.addGuest = container.find("#addGuest");
+	this.removeGuest = container.find("#removeGuest");
+	this.confirmDinner = container.find("#confirmDinner");
+	var draftMenu = container.find("#draftMenu")[0];
+
+	this.update = function(){
 
 		numGuests.value = model.getNumberOfGuests();
 		selected_dishes = model.getFullMenu();
@@ -44,11 +49,6 @@ var SidebarView = function (container, model) {
 		totaltop.html(total_price_text);
 		totalbottom.html(total_price_text);	
 	}
-	
-	this.addGuest = container.find("#addGuest");
-	this.removeGuest = container.find("#removeGuest");
-	this.confirmDinner = container.find("#confirmDinner");
-
 	
 }
  

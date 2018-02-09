@@ -32,7 +32,6 @@ $(function() {
 	  		document.getElementById("dishSearchView").style.display = "none";
 	  		document.getElementById("dishDetailsView").style.display = "none";
 	  		document.getElementById("summaryView").style.display = "block";
-	  		summaryView.loadsummary();
 			break;
 
 		case 'backtoEdit':
@@ -52,13 +51,11 @@ $(function() {
   			break;
 
   		case 'addDish':
-  			sidebarView.updateTable();
 	  		document.getElementById("dishSearchView").style.display = "block"
 	  		document.getElementById("dishDetailsView").style.display = "none"
   			break;
 
 		case 'printRecipe':
-			printView.printMenu();
 			document.getElementById("printView").style.display = "block"
 			document.getElementById("summaryView").style.display = "none"
 			break;

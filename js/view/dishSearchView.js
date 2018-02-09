@@ -3,10 +3,13 @@
 
  */ 
 var DishSearchView = function (container, model) {
+	model.addObserver(this);
 
-	this.search_dropdown = container.find("#search_dropdown");
+	this.search_dropdown = container.find("#search_dropdown")[0];	
+	this.searchDish = container.find("#searchDish");
+	this.searchText = document.getElementsByName("search_input")[0];
 	
-	function loadDropDownList(){
+	this.update = function(){
 		var dish_types = model.getDishTypeList();
 	    for(var i = 0; i < dish_types.length; i++){
 	       var option = document.createElement('option');
@@ -14,9 +17,7 @@ var DishSearchView = function (container, model) {
 	       search_dropdown.add(option, 0);
 	    }
 	}
-	loadDropDownList();
 
-	this.searchDish = container.find("#searchDish");
-	this.searchText = document.getElementsByName("search_input")[0];
+	this.update();
 
 }

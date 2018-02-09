@@ -8,17 +8,22 @@ var DinnerModel = function(exampleView, sidebarView) {
 		selected_dishes: []
 	};
 
-	var currentView = 'exampleView';
+	var observers = [];
 
-	this.notify = function(){
-		console.log("HELLO!!");
-		console.log(exampleView);
+	this.addObserver = function(observer) { 
+		observers.push(observer);
+	}
 
+	var notifyObservers = function() { 
+		for(var i = 0; i < observers.length; i++){	
+            observers[i].update();
+        }
 	}
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
 		menu.num_guests = num;
+		notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -113,6 +118,7 @@ var DinnerModel = function(exampleView, sidebarView) {
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1
 		menu.selected_dishes.push(id);
+		notifyObservers();
 	}
 
 	//Removes dish from menu
@@ -124,6 +130,7 @@ var DinnerModel = function(exampleView, sidebarView) {
         		break;       
     		}
 		}
+		notifyObservers(); 
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

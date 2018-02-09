@@ -3,18 +3,18 @@
 
  */ 
 var SummaryView = function (container, model, print_view) {
+	model.addObserver(this);
 
 	this.backtoEditButton = container.find("#backtoEditButton");
 	this.printRecipe = container.find("#printRecipe");
+	var view = container.find("#selectedDishMenu")[0];
+	var num_guests = container.find("#num_guests");
 
-
-	this.loadsummary = function(){
-		var num_guests = container.find("#num_guests");
+	this.update = function(){
+		
 		num_guests.html(model.getNumberOfGuests()); 
 		var dishlist = model.getFullMenu();
 		
-
-		var view = container.find("#selectedDishMenu")[0];
 		//remove other dishes previously added so that there is no repetitions
 		while(view.lastChild){
     			view.removeChild(view.lastChild);

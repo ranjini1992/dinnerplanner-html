@@ -3,8 +3,8 @@
 
  */ 
 var DishItemView = function (container, model, dish_details_view) {
+	model.addObserver(this);
 
-	var all_dishes = model.getAllDishes();
 	this.container = container;
 
     this.createListOfAllDishes = function(dishlist) {
@@ -34,6 +34,12 @@ var DishItemView = function (container, model, dish_details_view) {
 
 		}
     }
-    this.createListOfAllDishes(all_dishes);
+   
+    this.update = function(){
+    	var all_dishes = model.getAllDishes();
+    	this.createListOfAllDishes(all_dishes);
+    }
+
+    this.update();
 
 }

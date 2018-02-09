@@ -1,26 +1,37 @@
 /** DishDetailsView Object constructor
- * 
+
+ * Not adding this view as an observer since this view is not loaded until a dish is clicked
 
  */ 
 var DishDetailsView = function (container, model, side_bar_view) {
 
 	var view = this;
 	var num_guests = container.find("#num_guests");
+	this.backButton = container.find("#backButton");
+	this.addtoMenu = container.find("#addtoMenu");
+	var div_heading = container.find("#dishname")[0];
+	var div_image = container.find("#dishpicture")[0];
+	var div_steps = container.find("#dishprep")[0];
+	var ingredientsMenu = container.find("#ingredientsMenu")[0];
 
 	this.load = function(id){
 		view.dish_id = id;
+		view.update();
+	}
+
+	this.update = function(){
 
 		num_guests.html(model.getNumberOfGuests()); 
-		var dish = model.getDish(id);
-		var dish_total_price = model.getDishPrice(id);
+		var dish = model.getDish(view.dish_id);
+		var dish_total_price = model.getDishPrice(view.dish_id);
 
-		var div_heading = container.find("#dishname")[0];
+
 		div_heading.removeChild(div_heading.lastChild);
 	    var h4 = document.createElement("h4");
 		h4.textContent = dish.name;
 	    div_heading.appendChild(h4);
 
-	    var div_image = container.find("#dishpicture")[0];
+	   
 	    div_image.removeChild(div_image.lastChild);
 	    div_image.className = "biggallery"
 	    var fig = document.createElement('figure');
@@ -35,12 +46,10 @@ var DishDetailsView = function (container, model, side_bar_view) {
 		fig.appendChild(caption);
 	    div_image.appendChild(fig);
 
-	    var div_steps = container.find("#dishprep")[0];
 	    div_steps.removeChild(div_steps.lastChild);
 	    var steps = document.createTextNode(dish.description);
 	    div_steps.appendChild(steps);
 
-		this.ingredientsMenu = container.find("#ingredientsMenu");
 		var tbl  = ingredientsMenu;
 		while(tbl.rows.length > 0) {
 		  tbl.deleteRow(0);
@@ -65,9 +74,5 @@ var DishDetailsView = function (container, model, side_bar_view) {
 	    total_price.html("Total : SEK " + dish_total_price.toFixed(2)); 
 
 	}
-
-    this.backButton = container.find("#backButton");
-
-	this.addtoMenu = container.find("#addtoMenu");
 	  
 }

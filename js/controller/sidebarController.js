@@ -8,7 +8,7 @@ var SidebarController = function(view, model, state_controller) {
 	view.addGuest.click(function() {
 		var num_of_guests = model.getNumberOfGuests();
   		model.setNumberOfGuests(num_of_guests+1);
-  		view.updateTable();
+  		view.update();
 	});
 
 	view.removeGuest.click(function() {
@@ -16,12 +16,12 @@ var SidebarController = function(view, model, state_controller) {
 		if(num_of_guests >= 1 ){
 	  		model.setNumberOfGuests(num_of_guests-1);
 	  	} 
-	  	view.updateTable(); 	
+	  	view.update(); 	
 
 	});
 
 	view.confirmDinner.click(function() {
-		if(total_price != 0){
+		if(model.getTotalMenuPrice() != 0){
 			state_controller.route('confirmDinner');
 		}
 	});
