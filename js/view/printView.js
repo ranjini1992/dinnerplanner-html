@@ -29,8 +29,8 @@ var PrintView = function (container, model) {
 		    var div1 = document.createElement('div');
 		    div1.className ="col-md-3 gallery buffer";
 		    var img = document.createElement('img');
-		    img.style.width = img.style.height = '100px'
 		    img.src = 'images/' + dish.image;
+		    img.className = "image-box-lg"
 
 		    //appending stuff in reverse order
 		    div1.appendChild(img);

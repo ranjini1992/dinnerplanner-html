@@ -33,12 +33,11 @@ var DishDetailsView = function (container, model, side_bar_view) {
 
 	   
 	    div_image.removeChild(div_image.lastChild);
-	    div_image.className = "biggallery"
+	    div_image.className = "gallery"
 	    var fig = document.createElement('figure');
 	    var img = document.createElement('img');
-	    fig.style.height = '100px'
 	    img.src = 'images/' + dish.image;
-	    fig.className ="square-box"
+	  	img.className = "image-box-sm";
 	    var caption = document.createElement('figcaption');
 		var caption_text = document.createTextNode('Dish Type: ' + dish.type);
 		caption.appendChild(caption_text);

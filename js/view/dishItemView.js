@@ -20,7 +20,7 @@ var DishItemView = function (container, model, dish_details_view) {
 		    div.className ="col-md-3 gallery";
 		    var fig = document.createElement('figure');
 		    var img = document.createElement('img');
-		    img.style.width = img.style.height = '80px'
+		    img.className = "image-box-sm";
 		    img.src = 'images/' + dishlist[i].image;
 		    var caption = document.createElement('figcaption');
 		    var caption_text = document.createTextNode(dishlist[i].name);

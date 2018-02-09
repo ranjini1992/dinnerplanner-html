@@ -27,11 +27,9 @@
 }
 
 .biggallery {
-    border: 1px solid #ccc;
     width: 200px;
     height: 200px;
     text-align: center;
-    box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.75);
 }
 
 .search-input {
@@ -44,8 +42,27 @@
     box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, 0.75);
 }
 
+.guest-text-box{
+    width: 50px; 
+    height: 30px;
+}
 .full-width {
     width: 100%;
+}
+
+.image-box-sm {
+    width: 80px;
+    height: 80px;
+}
+
+.image-box-md {
+    width: 90px;
+    height: 90px;
+}
+
+.image-box-lg {
+    width: 100px;
+    height: 100px;
 }
 
 .buffer { margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:10px; }

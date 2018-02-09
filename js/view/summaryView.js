@@ -25,12 +25,12 @@ var SummaryView = function (container, model, print_view) {
 	    	var dish = model.getDish(dishlist[i]);
 
 		    var div = document.createElement('div');
-		    div.className ="col-md-3";
+		    div.className ="col-md-3 biggallery";
 		    div.id = dishlist[i];
 		    var fig = document.createElement('figure');
 		    fig.className ="gallery"
 		    var img = document.createElement('img');
-		    img.style.width = img.style.height = '90px'
+		    img.className = "image-box-md"
 		    img.src = 'images/' + dish.image;
 		    var caption = document.createElement('figcaption');
 		    var caption_text = document.createTextNode(dish.name);
@@ -40,24 +40,19 @@ var SummaryView = function (container, model, print_view) {
 		    //appending stuff in reverse order
 		    caption.appendChild(caption_text);
 		    fig.appendChild(img);
-
 		    fig.appendChild(caption);
-
 		    div.appendChild(fig);
 		    div.appendChild(price_text);
-		    div.style.textAlign = "center";
-
 		    view.appendChild(div);
 
 		}
 	  	var div = document.createElement('div');
-	    div.className ="col-md-3";
-	    var fig = document.createElement('figure');
+	    div.className ="col-md-3 biggallery float-right";
+	   	var fig = document.createElement('figure');
 		fig.className ="totalgallery"
 		div.appendChild(fig);
 		var total_price_text = document.createTextNode('Total: ' + model.getTotalMenuPrice().toFixed(2) + ' SEK');
 		div.appendChild(total_price_text);
-		div.style = "float: right";
 		view.appendChild(div)
 
 		
