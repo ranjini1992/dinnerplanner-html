@@ -2,7 +2,7 @@
  * 
 
  */ 
-var DishItemView = function (container, model, dish_details_view) {
+var DishItemView = function (container, model) {
 	model.addObserver(this);
 
 	this.container = container;

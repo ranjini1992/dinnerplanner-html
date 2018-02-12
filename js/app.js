@@ -4,10 +4,10 @@ $(function() {
 	
 	var exampleView = new ExampleView($("#exampleView"), model);
 	var printView = new PrintView($("#printView"), model);
-	var summaryView = new SummaryView($("#summaryView"), model, printView);
+	var summaryView = new SummaryView($("#summaryView"), model);
 	var sidebarView = new SidebarView($("#sidebarView"), model);
-	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model, sidebarView);
-	var dishItemView = new DishItemView($("#dishItemView"), model, dishDetailsView);
+	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model);
+	var dishItemView = new DishItemView($("#dishItemView"), model);
 	var dishSearchView = new DishSearchView($("#dishSearchView"), model);
 
 	var exampleController = new ExampleController(exampleView, this);

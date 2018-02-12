@@ -3,7 +3,7 @@
  * Not adding this view as an observer since this view is not loaded until a dish is clicked
 
  */ 
-var DishDetailsView = function (container, model, side_bar_view) {
+var DishDetailsView = function (container, model) {
 
 	var view = this;
 	var num_guests = container.find("#num_guests");

@@ -2,7 +2,7 @@
  * 
 
  */ 
-var SummaryView = function (container, model, print_view) {
+var SummaryView = function (container, model) {
 	model.addObserver(this);
 
 	this.backtoEditButton = container.find("#backtoEditButton");
