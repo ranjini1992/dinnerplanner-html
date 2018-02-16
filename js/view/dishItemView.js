@@ -6,12 +6,15 @@ var DishItemView = function (container, model) {
 	model.addObserver(this);
 
 	this.container = container;
+	var loading = container.find("#loading");
+
+	var view = this;
 
     this.createListOfAllDishes = function(dishlist) {
 
-    	var view = container[0];
-		while(view.lastChild){
-			view.removeChild(view.lastChild);
+    	var parent = container[0];
+		while(parent.children.length > 1){
+			parent.removeChild(parent.lastChild);
 		}
 
     	for(var i = 0; i < dishlist.length; i++){
@@ -21,25 +24,33 @@ var DishItemView = function (container, model) {
 		    var fig = document.createElement('figure');
 		    var img = document.createElement('img');
 		    img.className = "image-box-sm";
-		    img.src = 'images/' + dishlist[i].image;
+		    img.src =  'https://spoonacular.com/recipeImages/' + dishlist[i].image;
 		    var caption = document.createElement('figcaption');
-		    var caption_text = document.createTextNode(dishlist[i].name);
+		    var caption_text = document.createTextNode(dishlist[i].title);
 		    div.id = fig.id =img.id =caption.id = dishlist[i].id;
 		    //appending stuff in reverse order
 		    caption.appendChild(caption_text);
 		    fig.appendChild(img);
 		    fig.appendChild(caption);
 		    div.appendChild(fig);
-		    view.appendChild(div);
+		    parent.appendChild(div);
 
 		}
     }
    
     this.update = function(){
-    	var all_dishes = model.getAllDishes();
-    	this.createListOfAllDishes(all_dishes);
+    	loading.addClass('spinner');
+    	model.getAllDishes(null, null, function(dishes){
+		 	view.createListOfAllDishes(dishes);
+		 	loading.removeClass('spinner');
+		}, function(error) {
+			 var parent = container[0];
+			 parent.appendChild(document.createTextNode( "Woops there was an error! No recipes found"));
+			 loading.removeClass('spinner');
+		});
+
+
     }
 
-    this.update();
 
 }

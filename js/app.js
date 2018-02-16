@@ -1,7 +1,6 @@
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
-	
 	var exampleView = new ExampleView($("#exampleView"), model);
 	var printView = new PrintView($("#printView"), model);
 	var summaryView = new SummaryView($("#summaryView"), model);
@@ -25,6 +24,8 @@ $(function() {
 			document.getElementById("sidebarView").style.display = "block";
 			document.getElementById("dishSearchView").style.display = "block";
 			document.getElementById("dishItemView").style.display = "block";
+    		dishItemView.update();
+			dishSearchView.update();
 			break;
 		
 		case 'confirmDinner':
@@ -74,8 +75,6 @@ $(function() {
 	this.reloadDishDetailsView = function(id){
 		dishDetailsView.load(id);
 	}
-
-
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

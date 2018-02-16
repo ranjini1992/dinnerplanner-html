@@ -21,7 +21,7 @@ var PrintView = function (container, model) {
 		}
 
 		for(var i = 0; i < dishlist.length; i++){
-			var dish = model.getDish(dishlist[i]);
+			var dish = dishlist[i];
 
 	    	var div = document.createElement('div');
 		    div.className ="row buffer";
@@ -29,8 +29,8 @@ var PrintView = function (container, model) {
 		    var div1 = document.createElement('div');
 		    div1.className ="col-md-3 gallery buffer";
 		    var img = document.createElement('img');
-		    img.src = 'images/' + dish.image;
-		    img.className = "image-box-lg"
+		    img.src = dish.image;
+		    img.className = "image-box-md"
 
 		    //appending stuff in reverse order
 		    div1.appendChild(img);
@@ -39,16 +39,16 @@ var PrintView = function (container, model) {
 		    var div2 = document.createElement('div');
 		    div2.className ="col-md-4 buffer";
 		    var heading = document.createElement("H3")                
-			var name = document.createTextNode(dish.name);     
+			var name = document.createTextNode(dish.title);     
 			heading.appendChild(name)
-			var type = document.createTextNode(dish.type);     
+			var time = document.createTextNode("Ready in " + dish.readyInMinutes + "minutes");     
 			div2.appendChild(heading);
-			div2.appendChild(type);
+			div2.appendChild(time);
 			div.appendChild(div2);
 
 		   	var div3 = document.createElement('div');
 		    div3.className ="col-md-5 buffer";
-			div3.appendChild(document.createTextNode(dish.description))
+			div3.appendChild(document.createTextNode(dish.instructions))
 			div.appendChild(div3);
 
 			view.appendChild(div);

@@ -13,6 +13,8 @@
   </head>
 
   <body>
+
+
   	<div class="container">
   		<div class="row header buffer">
 	  			<h1> Dinner Planner </h1>
@@ -67,34 +69,38 @@
 				</nav>
 			</div>
 		</div>
+		
 
 		<div id="dishSearchView" style="display: none">	
 			<div class="col-md-9">
-			<div class="row">	
-					<h4> FIND A DISH </h4>
-					<div class="col-md-3">
-					 <input type="text" name="search_input" class="search-input" placeholder="Enter key words">
+				<div class="row">	
+						<h4> FIND A DISH </h4>
+						<div class="col-md-3">
+						 <input type="text" name="search_input" class="search-input" placeholder="Enter key words">
+						</div>
+						<div class="col-md-3">
+						 <select id="search_dropdown" class="search-input">
+						  <option value="All">All</option>
+						</select>
 					</div>
 					<div class="col-md-3">
-					 <select id="search_dropdown" class="search-input">
-					  <option value="All">All</option>
-					</select>
+						<button id="searchDish" class="btn btn-warning box-shadow">Search</button>
+					</div>
 				</div>
-				<div class="col-md-3">
-					<button id="searchDish" class="btn btn-warning box-shadow">Search</button>
-				</div>
-			</div>
 
-			<div class="row buffer">
-				<div id="dishItemView">
-				 <!-- DishItem Javascript will add a list of dish images here-->
-				</div>		
-			</div>
+				<div class="row buffer">
+					<div id="dishItemView">
+						<div class="row" id="loading"></div>
+					</div>
+					 <!-- DishItem Javascript will add a list of dish images here-->
+				</div>	
 			</div>
 		</div>
 
+
 		<div id="dishDetailsView" style="display: none">	
 			<div class="col-md-4">
+				<div class="row" id="loading"></div>
 				<div id="dishname" class="row buffer">
 				</div>
 				<div id="dishpicture" class="row buffer">

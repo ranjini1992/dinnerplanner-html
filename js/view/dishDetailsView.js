@@ -13,64 +13,75 @@ var DishDetailsView = function (container, model) {
 	var div_image = container.find("#dishpicture")[0];
 	var div_steps = container.find("#dishprep")[0];
 	var ingredientsMenu = container.find("#ingredientsMenu")[0];
+	var total_price = container.find("#total_price");
+	var loading = container.find("#loading");
+	this.selectedDish;
 
 	this.load = function(id){
-		view.dish_id = id;
-		view.update();
-	}
-
-	this.update = function(){
-
-		num_guests.html(model.getNumberOfGuests()); 
-		var dish = model.getDish(view.dish_id);
-		var dish_total_price = model.getDishPrice(view.dish_id);
-
+		loading.addClass('spinner');
 
 		div_heading.removeChild(div_heading.lastChild);
-	    var h4 = document.createElement("h4");
-		h4.textContent = dish.name;
-	    div_heading.appendChild(h4);
-
-	   
-	    div_image.removeChild(div_image.lastChild);
-	    div_image.className = "gallery"
-	    var fig = document.createElement('figure');
-	    var img = document.createElement('img');
-	    img.src = 'images/' + dish.image;
-	  	img.className = "image-box-sm";
-	    var caption = document.createElement('figcaption');
-		var caption_text = document.createTextNode('Dish Type: ' + dish.type);
-		caption.appendChild(caption_text);
-	    fig.appendChild(img);
-		fig.appendChild(caption);
-	    div_image.appendChild(fig);
-
-	    div_steps.removeChild(div_steps.lastChild);
-	    var steps = document.createTextNode(dish.description);
-	    div_steps.appendChild(steps);
-
+		div_image.removeChild(div_image.lastChild);
+		div_steps.removeChild(div_steps.lastChild);
 		var tbl  = ingredientsMenu;
 		while(tbl.rows.length > 0) {
 		  tbl.deleteRow(0);
 		}
-		for(var i = 0; i < dish.ingredients.length; i++){
-	        var tr = tbl.insertRow();	        
-	        var td = tr.insertCell();
-	        td.appendChild(document.createTextNode(dish.ingredients[i].quantity + ' ' + dish.ingredients[i].unit));
+		total_price.html("");
 
-	        td = tr.insertCell();
-	        td.appendChild(document.createTextNode(dish.ingredients[i].name)); 
-	        
-	        td = tr.insertCell();
-	 		td.appendChild(document.createTextNode('SEK')); 
+		num_guests.html(model.getNumberOfGuests()); 
+		model.getDish(id, function(dish){
+			view.selectedDish = {};
+			view.selectedDish.id = id;
+			view.selectedDish.title = dish.title;
+			view.selectedDish.readyInMinutes = dish.readyInMinutes;
+			view.selectedDish.extendedIngredients = dish.extendedIngredients;
+			view.selectedDish.instructions = dish.instructions;
+			view.selectedDish.pricePerServing = dish.pricePerServing*0.01;
+			view.selectedDish.image = dish.image;
+		
+		    var h4 = document.createElement("h4");
+			h4.textContent = dish.title;
+		    div_heading.appendChild(h4);
+		   
+		    div_image.className = "gallery"
+		    var fig = document.createElement('figure');
+		    var img = document.createElement('img');
+		    img.src = dish.image;
+		  	img.className = "image-box-md";
+		    var caption = document.createElement('figcaption');
+			var caption_text = document.createTextNode('Ready in ' + dish.readyInMinutes + ' minutes');
+			caption.appendChild(caption_text);
+		    fig.appendChild(img);
+			fig.appendChild(caption);
+		    div_image.appendChild(fig);
+	    
+		    var steps = document.createTextNode(dish.instructions);
+		    div_steps.appendChild(steps);
 
-	        td = tr.insertCell(); 
-	        td.appendChild(document.createTextNode(dish.ingredients[i].price.toFixed(2)));    
-	        
-	    }
+			
+			for(var i = 0; i < dish.extendedIngredients.length; i++){
+		        var tr = tbl.insertRow();	        
+		        var td = tr.insertCell();
+		        td.appendChild(document.createTextNode(dish.extendedIngredients[i].amount.toFixed(1) + ' ' + dish.extendedIngredients[i].unit));
 
-	    var total_price = container.find("#total_price");
-	    total_price.html("Total : SEK " + dish_total_price.toFixed(2)); 
+		        td = tr.insertCell();
+		        td.appendChild(document.createTextNode(dish.extendedIngredients[i].name)); 
+		        
+		     	td = tr.insertCell();
+		     	var img = document.createElement('img');
+		     	img.src = dish.extendedIngredients[i].image;
+		  		img.className = "image-box-xs";
+		 		td.appendChild(img);    	        
+		    }
+  
+		    total_price.html("Total : $ " + dish.pricePerServing.toFixed(2)); 
+		    loading.removeClass('spinner');
+	    }, function(error) {
+			 console.log("API error");
+			 div_heading.appendChild(document.createTextNode( "Missing recipe"));
+			 loading.removeClass('spinner');
+		});
 
 	}
 	  

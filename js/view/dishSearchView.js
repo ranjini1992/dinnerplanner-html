@@ -8,6 +8,9 @@ var DishSearchView = function (container, model) {
 	this.search_dropdown = container.find("#search_dropdown")[0];	
 	this.searchDish = container.find("#searchDish");
 	this.searchText = document.getElementsByName("search_input")[0];
+	this.loading = container.find("#loading");
+
+	
 	
 	this.update = function(){
 		var dish_types = model.getDishTypeList();
@@ -18,6 +21,6 @@ var DishSearchView = function (container, model) {
 	    }
 	}
 
-	this.update();
+	//this.update();
 
 }

@@ -6,7 +6,7 @@ var DishDetailsController = function (view, model, state_controller) {
 	});
 
 	view.addtoMenu.click(function() {
-		model.addDishToMenu(view.dish_id);
+		model.addDishToMenu(view.selectedDish);
 		state_controller.route('addDish');
 	});
 }

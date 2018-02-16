@@ -4,8 +4,16 @@ var DishSearchController = function(view, model, state_controller) {
 		var search_input = view.searchText.value;
 		var search_category = view.search_dropdown.value;
 
-		var filtered_dishes = model.getAllDishes(search_category,search_input);
-		state_controller.reloadDishItemView(filtered_dishes);
+		//var filtered_dishes = model.getAllDishesType(search_category,search_input);		
+		view.loading.addClass('spinner');
+		model.getAllDishes(search_input, search_category, function(dishes){
+		 	state_controller.reloadDishItemView(dishes);
+		 	view.loading.removeClass('spinner');
+		}, function(error) {
+			 console.log("API error");
+			 view.loading.removeClass('spinner');
+		});   
+		
 
 	});
 }

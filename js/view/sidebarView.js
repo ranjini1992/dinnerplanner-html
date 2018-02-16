@@ -36,16 +36,16 @@ var SidebarView = function (container, model) {
 	    for(var i = 0; i < selected_dishes.length; i++){
 	        var tr = tbl.insertRow();	        
 	        var td = tr.insertCell();
-	        var dish = model.getDish(selected_dishes[i]);
-	        td.appendChild(document.createTextNode(dish.name));
+	        var dish = selected_dishes[i];
+	        td.appendChild(document.createTextNode(dish.title));
 
 	        var td = tr.insertCell();
-	        var dishPrice = model.getDishPrice(selected_dishes[i]);
-	        td.appendChild(document.createTextNode(dishPrice.toFixed(2)));     
+	        var total = numGuests.value*dish.pricePerServing;
+	        td.appendChild(document.createTextNode(total.toFixed(2)));     
 	        
 	    }
 	    total_price = model.getTotalMenuPrice().toFixed(2);
-		total_price_text = 'SEK ' + total_price;
+		total_price_text = '$ ' + total_price;
 		totaltop.html(total_price_text);
 		totalbottom.html(total_price_text);	
 	}
