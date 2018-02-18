@@ -13,7 +13,7 @@ var SidebarView = function (container, model) {
 	var totaltop = container.find("#totalSidebarTop");
 	var totalbottom = container.find("#totalSidebarBottom");
 	var total_price = 0;
-	var	total_price_text = 'SEK ' + total_price.toFixed(2);
+	var	total_price_text = '$ ' + total_price.toFixed(2);
 	totaltop.html(total_price_text);
 	totalbottom.html(total_price_text);
 
@@ -29,20 +29,27 @@ var SidebarView = function (container, model) {
 		numGuests.value = model.getNumberOfGuests();
 		selected_dishes = model.getFullMenu();
 		var tbl  = draftMenu;
-		//delete existing rows in the menu because we need to update prices
-		while(tbl.rows.length > 0) {
-		  tbl.deleteRow(0);
-		}
-	    for(var i = 0; i < selected_dishes.length; i++){
-	        var tr = tbl.insertRow();	        
-	        var td = tr.insertCell();
-	        var dish = selected_dishes[i];
-	        td.appendChild(document.createTextNode(dish.title));
 
-	        var td = tr.insertCell();
-	        var total = numGuests.value*dish.pricePerServing;
-	        td.appendChild(document.createTextNode(total.toFixed(2)));     
-	        
+	    for(var i = 0; i < selected_dishes.length; i++){
+	    	var dish = selected_dishes[i];
+	        var find_dish_name = container.find("#"+ String(dish.id))[0];
+	        if(find_dish_name){
+				var find_dish_price = container.find("#"+ String(dish.id*2))[0];
+	        	var total = numGuests.value*dish.pricePerServing;
+	        	find_dish_price.innerHTML = total.toFixed(2);
+	        }
+	        else{
+		        var tr = tbl.insertRow();	        
+		        var td_name = tr.insertCell();
+		        
+		        td_name.appendChild(document.createTextNode(dish.title));
+		        td_name.id = dish.id;
+
+		        var td_price = tr.insertCell();
+		        var total = numGuests.value*dish.pricePerServing;
+		        td_price.appendChild(document.createTextNode(total.toFixed(2))); 
+		        td_price.id = dish.id*2;   
+		    }      
 	    }
 	    total_price = model.getTotalMenuPrice().toFixed(2);
 		total_price_text = '$ ' + total_price;
