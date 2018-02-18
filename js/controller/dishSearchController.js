@@ -10,7 +10,7 @@ var DishSearchController = function(view, model, state_controller) {
 		 	state_controller.reloadDishItemView(dishes);
 		 	view.loading.removeClass('spinner');
 		}, function(error) {
-			 console.log("API error");
+			 alert("Woops no recipe found!");
 			 view.loading.removeClass('spinner');
 		});   
 		

@@ -75,11 +75,11 @@ var DishDetailsView = function (container, model) {
 		 		td.appendChild(img);    	        
 		    }
   
-		    total_price.html("Total : $ " + dish.pricePerServing.toFixed(2)); 
-		    loading.removeClass('spinner');
+		    total_price.html("Total : $ " + (dish.pricePerServing*0.01).toFixed(2)); 
+		
+			loading.removeClass('spinner');
 	    }, function(error) {
-			 console.log("API error");
-			 div_heading.appendChild(document.createTextNode( "Missing recipe"));
+			 alert("Woops no recipe found!");
 			 loading.removeClass('spinner');
 		});
 

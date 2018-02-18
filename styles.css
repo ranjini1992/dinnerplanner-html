@@ -32,7 +32,7 @@
     padding: 1em;
     float: bottom;
     width: 200px;
-    height:200px;
+    height:175px;
     text-align: center;
     box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.75);
 }
@@ -71,6 +71,7 @@
 }
 
 .image-box-xs {
+    background-color: white;
     width: 50px;
     height: 50px;
 }
@@ -81,8 +82,8 @@
 }
 
 .image-box-md {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 100px;
 }
 
 .buffer { margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:10px; }

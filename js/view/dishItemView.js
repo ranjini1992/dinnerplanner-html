@@ -41,11 +41,15 @@ var DishItemView = function (container, model) {
     this.update = function(){
     	loading.addClass('spinner');
     	model.getAllDishes(null, null, function(dishes){
-		 	view.createListOfAllDishes(dishes);
+    		if(dishes.length > 0){
+		 		view.createListOfAllDishes(dishes);
+    		}else{
+    			alert("Woops no recipe found");
+    		}
 		 	loading.removeClass('spinner');
 		}, function(error) {
 			 var parent = container[0];
-			 parent.appendChild(document.createTextNode( "Woops there was an error! No recipes found"));
+			 alert("Woops no recipe found!");
 			 loading.removeClass('spinner');
 		});
 

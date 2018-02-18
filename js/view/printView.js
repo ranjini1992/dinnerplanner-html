@@ -31,9 +31,11 @@ var PrintView = function (container, model) {
 		    var img = document.createElement('img');
 		    img.src = dish.image;
 		    img.className = "image-box-md"
+		    var time = document.createTextNode("Ready in " + dish.readyInMinutes + "minutes");   
 
 		    //appending stuff in reverse order
 		    div1.appendChild(img);
+		    div1.appendChild(time);
 		    div.appendChild(div1);
 
 		    var div2 = document.createElement('div');
@@ -41,9 +43,9 @@ var PrintView = function (container, model) {
 		    var heading = document.createElement("H3")                
 			var name = document.createTextNode(dish.title);     
 			heading.appendChild(name)
-			var time = document.createTextNode("Ready in " + dish.readyInMinutes + "minutes");     
+			  
 			div2.appendChild(heading);
-			div2.appendChild(time);
+			
 			div.appendChild(div2);
 
 		   	var div3 = document.createElement('div');
