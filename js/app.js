@@ -25,7 +25,6 @@ $(function() {
 			document.getElementById("dishSearchView").style.display = "block";
 			document.getElementById("dishItemView").style.display = "block";
     		dishItemView.update();
-			dishSearchView.update();
 			break;
 		
 		case 'confirmDinner':
