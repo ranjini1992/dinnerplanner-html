@@ -24,7 +24,7 @@ $(function() {
 			document.getElementById("sidebarView").style.display = "block";
 			document.getElementById("dishSearchView").style.display = "block";
 			document.getElementById("dishItemView").style.display = "block";
-    		dishItemView.update();
+    		dishItemView.update("load_recipe");
 			break;
 		
 		case 'confirmDinner':

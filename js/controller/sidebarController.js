@@ -1,6 +1,5 @@
 
 var SidebarController = function(view, model, state_controller) {
-//	console.log(view);
 	view.numGuests.click(function() {
 		model.setNumberOfGuests(numGuests.value);
 	});
@@ -8,7 +7,6 @@ var SidebarController = function(view, model, state_controller) {
 	view.addGuest.click(function() {
 		var num_of_guests = model.getNumberOfGuests();
   		model.setNumberOfGuests(num_of_guests+1);
-  		view.update();
 	});
 
 	view.removeGuest.click(function() {
@@ -16,8 +14,14 @@ var SidebarController = function(view, model, state_controller) {
 		if(num_of_guests >= 1 ){
 	  		model.setNumberOfGuests(num_of_guests-1);
 	  	} 
-	  	view.update(); 	
+	});
 
+	view.recipeMenu.click(function(e) {
+		var target = $(e.target);
+		if(target[0].id && !isNaN(target[0].id)){
+	  		model.removeDishFromMenu(target[0].id);
+	  		$("#"+String(target[0].id)+"_row").remove();
+	  	}
 	});
 
 	view.confirmDinner.click(function() {

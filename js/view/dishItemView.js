@@ -38,7 +38,10 @@ var DishItemView = function (container, model) {
 		}
     }
    
-    this.update = function(){
+    this.update = function(message){
+    	if(message == "change_guests" || message == "add_dish" || message == "remove_dish"){
+    		return;
+    	}
     	loading.addClass('spinner');
     	model.getAllDishes(null, null, function(dishes){
     		if(dishes.length > 0){

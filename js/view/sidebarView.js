@@ -22,33 +22,44 @@ var SidebarView = function (container, model) {
 	this.addGuest = container.find("#addGuest");
 	this.removeGuest = container.find("#removeGuest");
 	this.confirmDinner = container.find("#confirmDinner");
-	var draftMenu = container.find("#draftMenu")[0];
+	this.recipeMenu = container.find("#recipe_menu");
+	var tbl = container.find("#draftMenu")[0];
 
-	this.update = function(){
+	this.update = function(message){
 
 		numGuests.value = model.getNumberOfGuests();
 		selected_dishes = model.getFullMenu();
-		var tbl  = draftMenu;
 
-	    for(var i = 0; i < selected_dishes.length; i++){
+	    for(var i = 0; i < selected_dishes.length; i++){  	
+	    	if(message == "remove_dish"){return;}
+	    	
 	    	var dish = selected_dishes[i];
-	        var find_dish_name = container.find("#"+ String(dish.id))[0];
+	        var find_dish_name = container.find("#"+ String(dish.id)+ "_name")[0];
 	        if(find_dish_name){
-				var find_dish_price = container.find("#"+ String(dish.id*2))[0];
+				var find_dish_price = container.find("#"+ String(dish.id)+ "_price")[0];
 	        	var total = numGuests.value*dish.pricePerServing;
 	        	find_dish_price.innerHTML = total.toFixed(2);
 	        }
 	        else{
-		        var tr = tbl.insertRow();	        
+		        var tr = tbl.insertRow();	
+		        tr.id = String(dish.id)+ "_row";
+		        var td = tr.insertCell();
+		        var btn = document.createElement("button");
+		        btn.className = 'btn btn-xs';
+		        var span = document.createElement("span");
+		        span.className = 'glyphicon glyphicon-remove';
+		        btn.id = span.id = dish.id;
+		        btn.appendChild(span);
+		        td.appendChild(btn);
+
 		        var td_name = tr.insertCell();
-		        
 		        td_name.appendChild(document.createTextNode(dish.title));
-		        td_name.id = dish.id;
+		        td_name.id = String(dish.id)+ "_name";
 
 		        var td_price = tr.insertCell();
 		        var total = numGuests.value*dish.pricePerServing;
 		        td_price.appendChild(document.createTextNode(total.toFixed(2))); 
-		        td_price.id = dish.id*2;   
+		        td_price.id = String(dish.id)+ "_price";
 		    }      
 	    }
 	    total_price = model.getTotalMenuPrice().toFixed(2);

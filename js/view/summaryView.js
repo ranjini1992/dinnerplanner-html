@@ -10,7 +10,7 @@ var SummaryView = function (container, model) {
 	var view = container.find("#selectedDishMenu")[0];
 	var num_guests = container.find("#num_guests");
 
-	this.update = function(){
+	this.update = function(message){
 		var guests = model.getNumberOfGuests();
 		num_guests.html(guests); 
 		var dishlist = model.getFullMenu();

@@ -5,7 +5,7 @@
  */ 
  var ExampleView = function (container, model) {
 	this.createDinner = container.find("#createDinner");
-	this.update = function(){
+	this.update = function(message){
 		//nothing for now
 	}
 }

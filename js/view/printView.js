@@ -10,7 +10,7 @@ var PrintView = function (container, model) {
 	this.backtoSummaryButton = container.find("#backtoSummaryButton");
 	var view = container.find("#printMenu")[0]; 
 
-	this.update = function() {
+	this.update = function(message) {
 		num_guests.html(model.getNumberOfGuests()); 
 		
 		var dishlist = model.getFullMenu();

@@ -19,16 +19,16 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 
-	var notifyObservers = function() { 
+	var notifyObservers = function(message) { 
 		for(var i = 0; i < observers.length; i++){	
-            observers[i].update();
+            observers[i].update(message);
         }
 	}
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
 		menu.num_guests = num;
-		notifyObservers();
+		notifyObservers("change_guests");
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -104,8 +104,13 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(selectedDish) {
 		//TODO Lab 1
+		for(var i = 0; i < menu.selected_dishes.length; i++){
+    		if (menu.selected_dishes[i].id === selectedDish.id) {
+    			return;
+    		}
+    	}
 		menu.selected_dishes.push(selectedDish);
-		notifyObservers();
+		notifyObservers("add_dish");
 	}
 
 	//Removes dish from menu
@@ -117,7 +122,7 @@ var DinnerModel = function() {
         		break;       
     		}
 		}
-		notifyObservers(); 
+		notifyObservers("remove_dish"); 
 	}
 
 	this.getAllDishes = function (query, type, callback, errorCallback) {
